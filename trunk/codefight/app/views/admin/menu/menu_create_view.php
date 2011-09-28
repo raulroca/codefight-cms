@@ -40,7 +40,7 @@ foreach ($menu_array as $v)
     <p class="clear">&nbsp;</p>
 
     <label><?php echo __('PARAMS'); ?>:</label><input class="txtFld" name="menu_params" type="text" id="menu_params"
-                                                     value="<?php echo set_value('menu_params'); ?>"/>
+                                                     value="<?php echo form_prep(set_value('menu_params')); ?>"/>
 
     <p class="clear">&nbsp;</p>
 
