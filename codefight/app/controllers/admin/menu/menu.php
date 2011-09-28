@@ -132,7 +132,7 @@ class Menu extends MY_Controller
                 'menu_meta_title' => '',
                 'menu_meta_keywords' => '',
                 'menu_meta_description' => '',
-                'websites_id' => ',' . implode(',', $websites_id) . ',',
+                'websites_id' => ',' . implode(',', (array)$websites_id) . ',',
                 'menu_sort' => $menu_sort
             );
 
@@ -277,6 +277,10 @@ class Menu extends MY_Controller
                 $menu_params = ($v['menu_params']);
                 $menu_sort = xss_clean($v['menu_sort']);
                 $menu_type = $this->uri->segment(3, 'page');
+                if(!isset($v['websites_id']))
+                {
+                    $v['websites_id'] = 0;
+                }
                 $websites_id = xss_clean($v['websites_id']);
 
                 //If menu link is not defined, create one.
@@ -323,7 +327,7 @@ class Menu extends MY_Controller
                         'menu_meta_title' => '',
                         'menu_meta_keywords' => '',
                         'menu_meta_description' => '',
-                        'websites_id' => ',' . implode(',', $websites_id) . ',',
+                        'websites_id' => ',' . implode(',', (array)$websites_id) . ',',
                         'menu_sort' => $menu_sort
                     );
 
