@@ -98,6 +98,7 @@ class Cf_menu_lib
             $this->menu[$v['menu_parent_id']][$v['menu_id']] = array(
                 'title' => $v['menu_title'],
                 'url' => $v['menu_link'],
+                'params' => $v['menu_params'],
                 'id' => $v['menu_id'],
                 'websites_id' => $v['websites_id']);
 
@@ -157,15 +158,17 @@ class Cf_menu_lib
                     $this->echo_list .= "\n" . str_repeat(' ', ($space + 3)) . "<li{$li_param}>";
                     $this->echo_list .= "\n" . str_repeat(' ', ($space + 6));
 
-                    if (preg_match('@(http(s)?:\/\/|javascript::void\(0\);)@', $v['url'])) {
-                        $this->echo_list .= '<a' . $a_param . ' href="' . $v['url'] . '">' . $v['title'] . '</a>';
+                    if (preg_match('@(http(s)?:\/\/|javascript::?void\(0\);?)@', $v['url'])) {
+                        $this->echo_list .= '<a' . $a_param . ' ' . $v['params'] . ' href="' . $v['url'] . '">' .
+                                            $v['title'] . '</a>';
                     }
                     else
                     {
                         if ($this->menu_type != 'page')
-                            $this->echo_list .= anchor($this->menu_type . '/c/' . $v['url'], $v['title'], $a_param);
+                            $this->echo_list .= anchor($this->menu_type . '/c/' . $v['url'], $v['title'],
+                                                       $a_param . '' . $v['params']);
                         else
-                            $this->echo_list .= anchor($v['url'], $v['title'], $a_param);
+                            $this->echo_list .= anchor($v['url'], $v['title'], $a_param . '' . $v['params']);
 
 
                     }
@@ -176,6 +179,7 @@ class Cf_menu_lib
                             'id' => $v['id'],
                             'title' => str_repeat('-', $space) . $v['title'],
                             'url' => $v['url'],
+                            'params' => $v['params'],
                             'websites_id' => $v['websites_id']
                         );
                         //END::
