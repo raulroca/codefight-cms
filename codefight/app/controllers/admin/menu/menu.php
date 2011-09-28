@@ -86,6 +86,7 @@ class Menu extends MY_Controller
             array('field' => 'menu_parent_id', 'label' => 'Parent Menu', 'rules' => 'trim|required'),
             array('field' => 'menu_title', 'label' => 'Title', 'rules' => 'trim|required'),
             array('field' => 'menu_link', 'label' => 'Link', 'rules' => 'trim'),
+            array('field' => 'menu_params', 'label' => 'Params', 'rules' => 'trim'),
             array('field' => 'websites_id[]', 'label' => 'Websites', 'rules' => 'trim|required'),
             array('field' => 'menu_sort', 'label' => 'Sort Order', 'rules' => 'trim|required')
         );
@@ -104,6 +105,7 @@ class Menu extends MY_Controller
             $menu_parent_id = set_value('menu_parent_id');
             $menu_title = set_value('menu_title');
             $menu_link = set_value('menu_link');
+            $menu_params = set_value('menu_params');
             $menu_sort = set_value('menu_sort');
             $websites_id = set_value('websites_id[]');
             $menu_type = $this->uri->segment(3, 'page');
@@ -124,6 +126,7 @@ class Menu extends MY_Controller
                 'menu_active' => $menu_active,
                 'menu_parent_id' => $menu_parent_id,
                 'menu_link' => $menu_link,
+                'menu_params' => $menu_params,
                 'menu_title' => $menu_title,
                 'menu_type' => $menu_type,
                 'menu_meta_title' => '',
@@ -254,6 +257,7 @@ class Menu extends MY_Controller
                 $_POST['menu'][$row->menu_id]['menu_parent_id'] = $row->menu_parent_id;
                 $_POST['menu'][$row->menu_id]['menu_title'] = $row->menu_title;
                 $_POST['menu'][$row->menu_id]['menu_link'] = $row->menu_link;
+                $_POST['menu'][$row->menu_id]['menu_params'] = $row->menu_params;
                 $_POST['menu'][$row->menu_id]['websites_id'] = $row->websites_id;
                 $_POST['menu'][$row->menu_id]['menu_sort'] = $row->menu_sort;
             }
@@ -270,6 +274,7 @@ class Menu extends MY_Controller
                 $menu_parent_id = xss_clean($v['menu_parent_id']);
                 $menu_title = ($v['menu_title']);
                 $menu_link = ($v['menu_link']);
+                $menu_params = ($v['menu_params']);
                 $menu_sort = xss_clean($v['menu_sort']);
                 $menu_type = $this->uri->segment(3, 'page');
                 $websites_id = xss_clean($v['websites_id']);
@@ -291,6 +296,7 @@ class Menu extends MY_Controller
                 $_POST['menu'][$id]['menu_parent_id'] = $menu_parent_id;
                 $_POST['menu'][$id]['menu_title'] = $menu_title;
                 $_POST['menu'][$id]['menu_link'] = $menu_link;
+                $_POST['menu'][$id]['menu_params'] = $menu_params;
                 $_POST['menu'][$id]['menu_sort'] = $menu_sort;
                 $_POST['menu'][$id]['websites_id'] = $websites_id;
 
@@ -311,6 +317,7 @@ class Menu extends MY_Controller
                         'menu_active' => $menu_active,
                         'menu_parent_id' => $menu_parent_id,
                         'menu_link' => $menu_link,
+                        'menu_params' => $menu_params,
                         'menu_title' => $menu_title,
                         'menu_type' => $menu_type,
                         'menu_meta_title' => '',
