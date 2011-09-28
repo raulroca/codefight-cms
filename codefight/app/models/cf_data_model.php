@@ -323,21 +323,25 @@ class Cf_data_model extends MY_Model
     /*
       * Create Welcome | Login/Logout Line Block
       */
-    function welcome_get()
+    function welcome_get($include_name=true, $params='')
     {
         $ret = '';
         if ($this->session->userdata('logged_in') === '1') {
             $loggedData = $this->session->userdata('loggedData');
 
-            $ret = $loggedData['firstname'] . ' ' . $loggedData['lastname'] . " ( '" . $loggedData['group_title'] . "' ) | " . anchor('registration/logout', 'Logout');
+            if($include_name)
+            {
+                $ret = $loggedData['firstname'] . ' ' . $loggedData['lastname'] . " ( '" . $loggedData['group_title'] . "' ) | " . anchor('registration/logout', __('Logout'), $params);
+            } else {
+                $ret = anchor('registration/logout', __('Logout'), $params);
+            }
         }
         else
         {
-            $ret = anchor('registration/login', 'Login');
+            $ret = anchor('registration/login', __('Login'), $params);
         }
         return $ret;
     }
-
 }
 
 ?>
