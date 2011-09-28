@@ -46,6 +46,12 @@ foreach ($menu_ary as $v) {
                                                     value="<?php echo $v['menu_link']; ?>"/>
     <p class="clear">&nbsp;</p>
 
+    <label><?php echo __('PARAMS'); ?>:</label><input class="txtFld" name="menu[<?php echo $k; ?>][menu_params]"
+                                                     type="text"
+                                                     id="menu_<?php echo $k; ?>_menu_params"
+                                                     value="<?php echo $v['menu_params']; ?>"/>
+    <p class="clear">&nbsp;</p>
+
     <label><?php echo __('SORT'); ?>:</label><input class="txtFld" name="menu[<?php echo $k; ?>][menu_sort]" type="text"
                                                     id="menu_<?php echo $k; ?>_menu_sort"
                                                     value="<?php echo $v['menu_sort']; ?>"/>
