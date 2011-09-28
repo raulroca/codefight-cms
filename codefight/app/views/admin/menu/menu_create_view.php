@@ -37,6 +37,10 @@ foreach ($menu_array as $v)
         http://www.codefight.org/)</p>
     <label><?php echo __('LINK'); ?>:</label><input class="txtFld" name="menu_link" type="text" id="menu_link"
                                                     value="<?php echo set_value('menu_link'); ?>"/>
+    <p class="clear">&nbsp;</p>
+
+    <label><?php echo __('PARAMS'); ?>:</label><input class="txtFld" name="menu_params" type="text" id="menu_params"
+                                                     value="<?php echo set_value('menu_params'); ?>"/>
 
     <p class="clear">&nbsp;</p>
 
