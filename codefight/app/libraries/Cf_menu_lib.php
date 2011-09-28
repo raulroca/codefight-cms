@@ -162,6 +162,11 @@ class Cf_menu_lib
                         $this->echo_list .= '<a' . $a_param . ' ' . $v['params'] . ' href="' . $v['url'] . '">' .
                                             $v['title'] . '</a>';
                     }
+                    elseif($v['title'] == '[Login|Logout]')
+                    {
+                        $this->echo_list .= $this->CI->cf_data_model->welcome_get(false,
+                                                                                  $a_param . ' ' . $v['params']);
+                    }
                     else
                     {
                         if ($this->menu_type != 'page')
