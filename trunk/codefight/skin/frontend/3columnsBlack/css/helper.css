@@ -254,9 +254,9 @@ a.red:hover
 {
 	border:10px solid #fff;
 	border-top:none;
-	background:url("../images/white-transparent.png") repeat scroll left top transparent;
+	background:url("../images/type.png") repeat fixed left top transparent;
 	display:block;
-	margin:0 auto;
+	margin: 63px auto 0;
 	/*padding-bottom:20px;*/
 	width:960px;
 }
