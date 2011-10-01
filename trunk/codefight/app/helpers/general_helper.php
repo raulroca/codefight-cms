@@ -204,6 +204,33 @@ if (!function_exists('get_canonical_url')) {
 }
 
 
+if (!function_exists('skin_url')) {
+    function skin_url($path='frontend', $file='')
+    {
+        if (!defined('SKINPATH')) define('SKINPATH', (FCPATH));
+        $CI =& get_instance();
+
+        $path = trim($path, '/');
+        $file = trim($file, '/');
+
+        $skin_url = $CI->config->item('skin_url');
+        if (empty($skin_url)) $skin_url = base_url();
+
+        switch($path)
+        {
+            case 'global/images':
+                return $skin_url . 'skin/global/images/' . $file;
+                break;
+            case 'frontend':
+                return $skin_url . 'skin/frontend/' . $CI->cf_asset_lib->template . '/';
+                break;
+            default:
+        }
+        return '';
+    }
+}
+
+
 if (!function_exists('get_random_bg')) {
     function get_random_bg()
     {
