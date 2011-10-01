@@ -8,7 +8,7 @@
     );
 
     function process_comment() {
-        jQuery('#comment_new').html('<p class="red"><img alt="<?php echo lang('processing_wait');?>" src="assets/img/processing.gif" border="0" width="200" height="20"/></p>');
+        jQuery('#comment_new').html('<p class="red"><img alt="<?php echo lang('processing_wait');?>" src="<?php echo skin_url('global/images','ajax-loader.gif') ?>" border="0" width="128" height="15"/></p>');
         jQuery.post(
                 'page/ajax/get-page-comment',
                 {
