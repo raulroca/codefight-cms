@@ -144,7 +144,7 @@ class Cf_asset_lib
                 unset($this->defaults['css'][$k]);
             }
 
-            if (is_array($def)) $g = array_merge($g, $def);
+            if (is_array($def)) $g = array_merge($def, $g);
 
             //remove duplicate requests
             $g = array_unique($g);
@@ -165,7 +165,7 @@ class Cf_asset_lib
                 unset($this->defaults['js']);
             }
 
-            if (is_array($def)) $g = array_merge($this->js, $def);
+            if (is_array($def)) $g = array_merge($def, $this->js);
 
             //remove duplicate requests
             $g = array_unique($g);
