@@ -131,6 +131,38 @@ class Cf_blog_model extends MY_Model
         return $data;
     }
 
+    function redirect_blog($page_id = '0')
+    {
+        if (defined('CFWEBSITEID')) {
+            $this->db->join('page_access', 'page.page_id = page_access.page_id');
+            $this->db->order_by('page.page_sort', 'asc');
+            $this->db->order_by('page.page_id', 'desc');
+            $this->db->limit(1);
+
+            $query = $this->db->get_where('page', array('page.page_id' => $page_id, 'page.page_active' => '1'));
+            $data = $query->result_array();
+
+            if(isset($data[0]['websites_id']))
+            {
+                $web_id = array_pop(explode(',', trim($data[0]['websites_id'], ',')));
+                if($web_id != CFWEBSITEID)
+                {
+                    $this->load->model(array('websites/cf_websites_model'));
+
+                    $website = $this->db->where('websites_id', $web_id)->get('websites')->row();
+                    if(isset($website->websites_url))
+                    {
+                        $r_url = prep_url($website->websites_url);
+                        $r_url = trim($r_url, '/'). '/' . trim(uri_string(), '/');
+
+                        redirect($r_url, 'refresh', 301);
+                        die();
+                    }
+                }
+            }
+        }
+    }
+
     function get_page_full($page_id = '0')
     {
 
