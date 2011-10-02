@@ -221,6 +221,9 @@ if (!function_exists('skin_url')) {
             case 'global/images':
                 return $skin_url . 'skin/global/images/' . $file;
                 break;
+            case 'global':
+                return $skin_url . 'skin/global/' . $file;
+                break;
             case 'frontend':
                 return $skin_url . 'skin/frontend/' . $CI->cf_asset_lib->template . '/';
                 break;
