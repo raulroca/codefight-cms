@@ -34,7 +34,7 @@ class Page extends MY_Controller
         parent::MY_Controller();
 
         $this->load->helper(array('form', 'text'));
-        $this->load->model(array('blog/cf_blog_model', 'cf_menu_model', 'admin/cf_websites_model'));
+        $this->load->model(array('blog/cf_blog_model', 'cf_menu_model', 'websites/cf_websites_model'));
     }
 
     function index()
