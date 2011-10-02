@@ -371,7 +371,7 @@ class Cf_blog_model extends MY_Model
                 if ($this->uri->segment(3, 0) == $v['page_id']) {
 
                     //add share button
-                    $_content[$k]['addthis'] = '<br /><!-- AddThis Button BEGIN --><script type="text/javascript">var addthis_pub="dbashyal";</script><a href="http://www.addthis.com/bookmark.php?v=20" onmouseover="return addthis_open(this, \'\', \'[URL]\', \'[TITLE]\')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="http://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/200/addthis_widget.js"></script><!-- AddThis Button END -->';
+                    /*$_content[$k]['addthis'] = '<br /><!-- AddThis Button BEGIN --><script type="text/javascript">var addthis_pub="dbashyal";</script><a href="http://www.addthis.com/bookmark.php?v=20" onmouseover="return addthis_open(this, \'\', \'[URL]\', \'[TITLE]\')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="http://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a><script type="text/javascript" src="http://s7.addthis.com/js/200/addthis_widget.js"></script><!-- AddThis Button END -->';
                     $_content[$k]['sharethis'] = '
 <div class="post_share social-media"><div class="large-buttons"><div class="wdt_button">
 <iframe id="tweet_frame_483679" name="tweet_frame_483679" allowtransparency="true" frameborder="0" role="presentation" scrolling="no" src="http://platform.twitter.com/widgets/tweet_button.html?url=' . urlencode(site_url($link)) . '&amp;via=@codefight&amp;text=' . urlencode($v['page_title']) . '&amp;count=vertical" width="55" height="63"></iframe>
@@ -392,7 +392,7 @@ shared_object.attachChicklet(\'email\', document.getElementById(\'st_email_min\'
 <script type="text/javascript">
 var shared_object = SHARETHIS.addEntry({title: "' . ($v['page_title']) . '",url: "' . site_url($link) . '"}, {button:false,onmouseover:false});
 shared_object.attachButton(document.getElementById(\'st_sharethis\'));shared_object.attachChicklet(\'email\', document.getElementById(\'st_email\'));
-</script></div></div>';
+</script></div></div>';*/
 
                     if (isset($v['allow_comment']) && ($v['allow_comment'])) {
                         $data['page_id'] = $v['page_id'];
