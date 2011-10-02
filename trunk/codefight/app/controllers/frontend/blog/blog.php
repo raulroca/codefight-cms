@@ -100,6 +100,8 @@ class Blog extends MY_Controller
         if (isset($data['content']) && count((array)$data['content']) > 0) {
             $data['content'] = $this->cf_blog_model->parse_content($data['content']);
         } else {
+            $this->cf_blog_model->redirect_blog($this->page_id);
+
             header("HTTP/1.0 404 Not Found");
             //if content not found | Set meta to noindex, nofollow to save your website value to search engines.
             $data['noindex'] = 'yes';
