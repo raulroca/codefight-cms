@@ -87,7 +87,7 @@ if (defined('ENVIRONMENT'))
 |	http://example.com/
 |
 */
-define('CFWEBSITE', 'http://local3.codefight.org/');
+define('CFWEBSITE', 'http://np.zoosper.com/');
 define('CFWEBSITEID', 3);
 
 /*

@@ -87,7 +87,7 @@ if (defined('ENVIRONMENT'))
 |	http://example.com/
 |
 */
-define('CFWEBSITE', 'http://local4.codefight.org/');
+define('CFWEBSITE', 'http://np.coupongiftdeals.com/');
 define('CFWEBSITEID', 4);
 
 /*
