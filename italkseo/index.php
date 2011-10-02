@@ -58,7 +58,7 @@ if (defined('ENVIRONMENT'))
  * as this file.
  *
  */
-	$system_path = dirname(dirname(__FILE__)).'/codefight_172/CIcore';
+	$system_path = dirname(dirname(__FILE__)).'/CIcore';
 
 /*
  *---------------------------------------------------------------
@@ -74,7 +74,7 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = dirname(dirname(__FILE__)).'/codefight_172/app';
+	$application_folder = dirname(dirname(__FILE__)).'/codefight/app';
 	
 /*
 |--------------------------------------------------------------------------
