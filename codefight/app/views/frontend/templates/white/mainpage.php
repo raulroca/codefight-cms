@@ -102,7 +102,7 @@ $this->cf_block_lib->load('includes/general_js'); ?>
         <div class="contents"><?php
 
             //Load Google Link Units
-            $this->cf_block_lib->load('advertisements/banner_468x15');
+            //$this->cf_block_lib->load('advertisements/banner_468x15');
 
             //Load Content Block
             $this->cf_block_lib->load($content_block, 'white'); ?>
@@ -166,6 +166,7 @@ $this->cf_block_lib->load('includes/general_js'); ?>
         </div>
     </div>
 </div>
+<script src="http://cdn.wibiya.com/Toolbars/dir_0586/Toolbar_586600/Loader_586600.js" type="text/javascript"></script>
 </body>
 </html>
 
