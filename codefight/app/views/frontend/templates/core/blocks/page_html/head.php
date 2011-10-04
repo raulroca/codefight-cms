@@ -28,7 +28,7 @@
     <meta name="vendor" content="<?php echo $this->setting->site_name ?>"/>
     <meta name="Language" content="en"/>
 
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo site_url('tools/feed'); ?>"/><?php
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo site_url('feed'); ?>"/><?php
 
     //Get Assets (js|css)
     $this->cf_asset_lib->get();
