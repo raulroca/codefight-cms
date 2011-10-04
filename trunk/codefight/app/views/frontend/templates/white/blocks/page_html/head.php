@@ -32,7 +32,7 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo site_url('tools/feed'); ?>"/>
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php echo site_url('feed'); ?>"/>
 	<!--<link href='http://fonts.googleapis.com/css?family=Copse' rel='stylesheet' type='text/css'>-->
 
 
