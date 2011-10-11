@@ -8,65 +8,128 @@ class Cf_module_lib
 {
 
     var $CI;
-    var $XML = false;
+    var $cnf = array();
     var $nav = false;
+    var $top = array();
+    var $sort = array();
+    var $parents = array();
 
     function _getAdminNav()
     {
         $this->CI =& get_instance();
-        $files = $this->_getXmls();
-        $nav_array = $this->_mergeXmls($files);
+        $this->_getCnfs();
 
-        $nav = array();
-        foreach ((array)$nav_array as $k => $v)
+        $sort_array = (array)$this->cnf;
+        foreach($sort_array as $k => $v)
         {
-            $nav[$k] = $k;
-
-            if (isset($v['@attributes']['title'])) {
-                $title = $v['@attributes']['title'];
-                unset($v['@attributes']);
-
-                if (count($v) > 0) {
-                    if (is_array($title))
-                        $_title = (string)$title[0];
-                    else
-                        $_title = (string)$title;
-
-                    $title = array();
-                    $child_position_sort = array();
-                    foreach ($v as $k2 => $v2)
+            if(isset($v['global']['status']))
+            {
+                if($v['global']['status'] == 1)
+                {
+                    if(!isset($v['global']['title']))
                     {
-                        $child_position = 99999;
-                        //---
-                        $title_text = (string)$v[$k2];
-                        $title[$_title][$k . '/' . $k2] = $title_text;
-                        if (is_array($v[$k2])) {
-                            if (isset($v[$k2]['@content'])) {
-                                $title_text = (string)$v[$k2]['@content'];
-                                $title[$_title][$k . '/' . $k2] = $title_text;
-                            }
-                            if (isset($v[$k2]['@attributes']['position']))
-                                $child_position = (string)$v[$k2]['@attributes']['position'];
-                        }
-                        $child_position_sort[":{$child_position}:{$k}/{$k2}"] = $title_text;
+                        $this->cnf[$k]['global']['title'] = ucwords($k);
                     }
-                    ksort($child_position_sort);
-                    $nav[$k] = array();
-                    $nav[$k][$_title] = $child_position_sort;
-                    //print_r($child_position_sort);
+                    if(!isset($v['global']['parent']))
+                    {
+                        $this->cnf[$k]['global']['parent'] = 'top';
+                    }
+                    if(!isset($v['global']['void']))
+                    {
+                        $this->cnf[$k]['global']['void'] = 0;
+                    }
+                    if($v['global']['parent'] == 'top')
+                    {
+                        $this->sort[$k] = (isset($v['global']['sort']) ? (int)$v['global']['sort'] : 10000);
+                    } else {
+						$this->parents[$v['global']['parent']][$k] = $k;
+					}
+                } else {
+                    unset($this->cnf[$k]); //exclude disabled modules.
                 }
-            } else if ((is_array($v)) && isset($v[key($v)]['title'])) {
-                $nav[$k] = (string)$v[key($v)]['title'];
-            } else {
-                $nav[$k] = (string)$v;
             }
         }
+        asort($this->sort);
+        //print_r($this->sort);
 
-        //print_r($nav);
+        $nav = array();
+        foreach($this->sort as $k => $v)
+        {
+            $nav[$k]['void'] = $this->cnf[$k]['global']['void'];
+            $nav[$k]['url'] = $k;
+            $nav[$k]['title'] = $this->cnf[$k]['global']['title'];
+            $nav[$k]['child'] = array();
+
+            if(isset($this->parents[$k]))
+            {
+                foreach($this->parents[$k] as $pv)
+                {
+                    $nav[$k]['child'][$pv]['void'] = $this->cnf[$pv]['global']['void'];
+                    $nav[$k]['child'][$pv]['url'] = $pv;
+                    $nav[$k]['child'][$pv]['title'] = $this->cnf[$pv]['global']['title'];
+                    $nav[$k]['child'][$pv]['child'] = array();
+
+                    if(isset($this->cnf["+{$k}"]["+{$pv}"]))
+                    {
+                        foreach($this->cnf["+{$k}"]["+{$pv}"] as $_ck => $_cv)
+                        {
+                            if(isset($_cv['child']))
+                            {
+                                foreach($_cv['child'] as $ck => $cv)
+                                {
+                                    if(!isset($cv['status']) || empty($cv['status']))
+                                    {
+                                        continue;
+                                    }
+                                    $nav[$k]['child'][$pv]['child'][$ck]['void'] = 0;
+                                    $nav[$k]['child'][$pv]['child'][$ck]['url'] = $ck;
+                                    $nav[$k]['child'][$pv]['child'][$ck]['title'] = $cv['title'];
+                                }
+                                unset($this->cnf["+{$k}"]["+{$pv}"]);
+                            }
+                        }
+                    }
+                }
+            }
+
+            if(isset($this->cnf[$k]['admin']['child']))
+            {
+                foreach($this->cnf[$k]['admin']['child'] as $ck => $cv)
+                {
+                    if(!isset($cv['status']) || empty($cv['status']))
+                    {
+                        continue;
+                    }
+                    $nav[$k]['child'][$ck]['void'] = 0;
+                    $nav[$k]['child'][$ck]['url'] = $ck;
+                    $nav[$k]['child'][$ck]['title'] = $cv['title'];
+                }
+            }
+
+            if(isset($this->cnf["+{$k}"]))
+            {
+                foreach($this->cnf["+{$k}"] as $_ck => $_cv)
+                {
+                    if(isset($_cv['admin']['child']))
+                    {
+                        foreach($_cv['admin']['child'] as $ck => $cv)
+                        {
+                            if(!isset($cv['status']) || empty($cv['status']))
+                            {
+                                continue;
+                            }
+                            $nav[$k]['child'][$ck]['void'] = 0;
+                            $nav[$k]['child'][$ck]['url'] = $ck;
+                            $nav[$k]['child'][$ck]['title'] = $cv['title'];
+                        }
+                    }
+                }
+            }
+        }
         return $nav;
     }
 
-    function _mergeXmls($files = array())
+    function _mergeCnfs($files = array())
     {
         if (!count($files)) return '';
 
@@ -107,7 +170,7 @@ class Cf_module_lib
         return array_merge_recursive($sort, $nav);
     }
 
-    function _getXmls()
+    function _getCnfs()
     {
         $ret = array();
 
@@ -116,14 +179,18 @@ class Cf_module_lib
         if ($handle = opendir($dir)) {
             while (false !== ($file = readdir($handle)))
             {
-                if ($file != "." && $file != ".." && $file != 'Thumbs.db' && $file != 'index.html' && is_file($dir . $file)) {
-                    $ret[$dir . $file] = $dir . $file;
+                //if ($file != "." && $file != ".." && $file != 'Thumbs.db' && $file != 'index.html' && is_file($dir . $file)) {
+                if (substr($file, 0, 4) == "cnf." && substr($file, -4) == ".php" && is_file($dir . $file)) {
+                    //$ret[$dir . $file] = $dir . $file;
+                    include ($dir . $file);
                 }
             }
             closedir($handle);
         }
 
-        return $ret;
+        $this->cnf = array_merge($this->cnf, $cnf);
+
+        return;
     }
 }
 

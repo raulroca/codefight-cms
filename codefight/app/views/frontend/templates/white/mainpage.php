@@ -35,8 +35,13 @@ $this->cf_block_lib->load('includes/general_js'); ?>
             jQuery(document).ready(function(){
                 if(jQuery('div#sharebox').length > 0)
                 {
-                    jQuery('#sharebox').cfShare({shareClients:['facebook','twitter', 'googleplusone', 'linkedin'],
-                        addthisId:'dbashyal'});
+                    jQuery('#sharebox').cfShare({
+                        shareClients:['facebook','facebooksend','twitter', 'googleplusone', 'linkedin','digg',
+                            'addthis'],
+                        addthisId:'dbashyal',
+                        startTop : 94,
+                        fromPosition:'top'
+                    });
                 }
             })
         </script>
