@@ -62,7 +62,11 @@
     <label><?php echo lang('spam_check'); ?>*:</label><input name="spam" type="text" class="txtfield inputtxt" id="spam"
                                                              value="" maxlength="250"/>
     <br/>
-    <label class="spam_question"><?php echo $this->cf_setting_model->security_question(); ?></label>
+    <label class="spam_question">
+        <img id="captcha" src="<?php echo base_url(); ?>tools/captcha/?<?php echo time(); ?>"
+                                      alt=""
+                                      border="0" onclick="jQuery('#captcha').attr('src', '<?php echo base_url(); ?>tools/captcha/?' + Math.floor(new Date().getTime() / 1000));"/>
+    </label>
 
 
     <br/>
