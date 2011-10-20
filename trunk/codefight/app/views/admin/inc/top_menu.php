@@ -7,7 +7,13 @@
  * Those configs are read every page visit in admin,
  * @todo::which will be cached in later versions to improve more performance.
  */
-$menu_item = $this->cf_module_lib->_getAdminNav(); ?>
+ error_reporting(E_ALL);
+$menu_item = $this->cf_module_lib->_getAdminNav();
+//$cache = $this->cf_cache_lib->cache(60);
+//print_r(get_class_vars(get_class($cache)));
+//$test = $cache->_display(json_encode($menu_item), 'blahblah_id');
+//print_r($test);
+?>
 <script type="text/javascript"> 
 jQuery(document).ready(function(){
     jQuery("ul#main-nav li").find("ul").children(".current").parents('li').addClass('active');
@@ -151,7 +157,7 @@ foreach ($menu_item as $k => $v)
     {
         $attr = 'onclick="return false;"';
     }
-    echo anchor($admin.$v['url'], $v['title'], $attr);
+    echo anchor($admin.$v['url'], __($v['title']), $attr);
     if(isset($v['child']) && is_array($v['child']) && count($v['child']) > 0)
     {
         echo '<ul class="child">';
@@ -165,7 +171,7 @@ foreach ($menu_item as $k => $v)
 			{
 				$attr = 'onclick="return false;"';
 			}
-            echo anchor($admin.$cv['url'], $cv['title'], $attr);
+            echo anchor($admin.$cv['url'], __($cv['title']), $attr);
             if(isset($cv['child']) && is_array($cv['child']) && count($cv['child']) > 0)
             {
                 echo '<ul class="grand-child">';
@@ -174,7 +180,12 @@ foreach ($menu_item as $k => $v)
                     $class = 'cf' . preg_replace('/[^a-z0-9]/isU', '-', $gv['url']) . (($gv['url'] == $current_url) ? '
                     current' : '');
                     echo '<li class="'.$class.'">';
-                    echo anchor($admin.$gv['url'], $gv['title']);
+					$attr = '';
+					if($gv['void'])
+					{
+						$attr = 'onclick="return false;"';
+					}
+                    echo anchor($admin.$gv['url'], __($gv['title']), $attr);
                     echo '</li>';
                 }
                 echo '</ul>';

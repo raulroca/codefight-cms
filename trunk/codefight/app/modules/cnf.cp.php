@@ -4,6 +4,7 @@
  * Module: Admin Control Panel Home
  * Author: Damodar Bashyal
  * Date: 5/10/2011
+ * @todo:: define language file, models, libraries, helpers, controller, routes.
  */
 $cnf['cp']['global'] = array(
 			'status' => 1,

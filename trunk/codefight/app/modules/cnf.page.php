@@ -8,8 +8,8 @@
 $cnf['page']['global'] = array(
 			'status' => 1,
 			'sort' => 50,
-            'title' => 'Page',
-            'void' => 0, /*1 = onclick="return false;"*/
+            'title' => 'CMS',
+            'void' => 1, /*1 = onclick="return false;"*/
 			'parent' => 'top',
 		);
 $cnf['page']['admin'] = array(
@@ -20,7 +20,12 @@ $cnf['page']['admin'] = array(
 						),
 					'page/blog' => array(
                         'status' => 1,
-						'title' => 'Blog'
+						'title' => 'Blog Article'
+						),
+					'page/block' => array(
+                        'status' => 1,
+						'title' => 'Static Blocks',
+						'void' => 1
 						),
 				)
 		);

@@ -6,13 +6,13 @@
  * Date: 5/10/2011
  */
 $cnf['modulecreator']['global'] = array(
-			'status' => 0,
+			'status' => 1,
 			'sort' => 100,
 			'title' => 'Module Creator',
-			'parent' => 'top',
+			'parent' => 'tools',
 			'void' => 1,
 		);
-$cnf['modulecreator']['admin'] = array(
+$cnf['+tools']['+modulecreator']['admin'] = array(
 			'child' => array(
 					'modulecreator/create' => array(
                         'status' => 1,

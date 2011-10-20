@@ -10,4 +10,18 @@ $cnf['user']['global'] = array(
 			'sort' => 30,
 			'title' => 'User',
 			'parent' => 'top',
+			'void' => 1,
 		);
+$cnf['user']['admin'] = array(
+			'child' => array(
+					'user' => array(
+                        'status' => 1,
+						'title' => 'Users'
+						),
+					'group' => array(
+                        'status' => 1,
+						'title' => 'Groups'
+						),
+				)
+		);
+$cnf['user']['frontend'] = array();/*to be included in future releases*/		
