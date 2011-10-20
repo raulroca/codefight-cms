@@ -1,15 +1,16 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
  * Package: Codefight CMS
- * Module: Trim URL
+ * Module: Sitemap Generator
  * Author: Damodar Bashyal
  * Date: 5/10/2011
  */
-$cnf['+tools']['trim']['admin'] = array(
+$cnf['+tools']['sitemap']['admin'] = array(
 			'child' => array(
-					'trim' => array(
+                    'setting/sitemap' => array(
                         'status' => 1,
-						'title' => 'Shorten URL'
-						),
+                        'title' => 'Generate Sitemap'
+                        ),
 				)
 		);
+		

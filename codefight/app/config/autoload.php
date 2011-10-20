@@ -53,6 +53,7 @@ $autoload['packages'] = array(APPPATH . 'third_party');
 */
 $autoload['libraries'] = array(
     'database',
+	'cf_library',
     'cf_block_lib',
     'session',
     'user_agent',

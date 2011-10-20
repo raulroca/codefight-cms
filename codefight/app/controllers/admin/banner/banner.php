@@ -34,6 +34,7 @@ class Banner extends MY_Controller
         parent::MY_Controller();
 
         $this->load->helper('file');
+		$this->load->library('banner/cf_banner_lib');
     }
 
     function index()
@@ -46,15 +47,15 @@ class Banner extends MY_Controller
         $dir_ok = false;
 
         if (function_exists('imagecreate') && !empty($banner_extension)) {
-            if (is_dir(FCPATH . 'media/graph')) {
-                if (is_writeable(FCPATH . 'media/graph')) {
+            if (is_dir(FCPATH . 'media'.DS.'graph')) {
+                if (is_writeable(FCPATH . 'media'.DS.'graph')) {
                     $dir_ok = true;
                 }
                 else
                 {
                     // display login error
                     //$data['error_message'][] = 'Folder "' . dirname(FCPATH) . '/media/graph" must be writeable.';
-                    $msg = array('error' => "<p>Folder " . FCPATH . "/media/graph must be writeable.</p>");
+                    $msg = array('error' => '<p>Folder ' . FCPATH . 'media'.DS.'graph must be writeable.</p>');
                     set_global_messages($msg, 'error');
                 }
 
@@ -63,7 +64,7 @@ class Banner extends MY_Controller
             {
                 // display login error
                 //$data['error_message'][] = 'Folder "' . dirname(FCPATH) . '/media/graph" does not exists.';
-                $msg = array('error' => "<p>Folder " . FCPATH . "/media/graph does not exists.</p>");
+                $msg = array('error' => "<p>Folder " . FCPATH . 'media'.DS.'graph does not exists.</p>');
                 set_global_messages($msg, 'error');
             }
         }

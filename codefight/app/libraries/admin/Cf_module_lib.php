@@ -81,7 +81,11 @@ class Cf_module_lib
                                     {
                                         continue;
                                     }
-                                    $nav[$k]['child'][$pv]['child'][$ck]['void'] = 0;
+                                    if(!isset($cv['void']))
+									{
+										$cv['void'] = 0;
+									}
+                                    $nav[$k]['child'][$pv]['child'][$ck]['void'] = $cv['void'];
                                     $nav[$k]['child'][$pv]['child'][$ck]['url'] = $ck;
                                     $nav[$k]['child'][$pv]['child'][$ck]['title'] = $cv['title'];
                                 }
@@ -100,7 +104,11 @@ class Cf_module_lib
                     {
                         continue;
                     }
-                    $nav[$k]['child'][$ck]['void'] = 0;
+                    if(!isset($cv['void']))
+					{
+						$cv['void'] = 0;
+					}
+					$nav[$k]['child'][$ck]['void'] = $cv['void'];
                     $nav[$k]['child'][$ck]['url'] = $ck;
                     $nav[$k]['child'][$ck]['title'] = $cv['title'];
                 }
@@ -118,7 +126,11 @@ class Cf_module_lib
                             {
                                 continue;
                             }
-                            $nav[$k]['child'][$ck]['void'] = 0;
+							if(!isset($cv['void']))
+							{
+								$cv['void'] = 0;
+							}
+                            $nav[$k]['child'][$ck]['void'] = $cv['void'];
                             $nav[$k]['child'][$ck]['url'] = $ck;
                             $nav[$k]['child'][$ck]['title'] = $cv['title'];
                         }

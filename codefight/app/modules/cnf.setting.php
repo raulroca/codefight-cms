@@ -1,15 +1,15 @@
 <?php  if (!defined('BASEPATH')) exit('No direct script access allowed');
 /*
  * Package: Codefight CMS
- * Module: Setting
+ * Module: Settings
  * Author: Damodar Bashyal
  * Date: 5/10/2011
  */
 $cnf['setting']['global'] = array(
 			'status' => 1,
 			'sort' => 10000000,
-            'title' => 'Setting',
-            'void' => 0, /*1 = onclick="return false;"*/
+            'title' => 'Settings',
+            'void' => 1, /*1 = onclick="return false;"*/
 			'parent' => 'top',
 		);
 $cnf['setting']['admin'] = array(
@@ -25,14 +25,6 @@ $cnf['setting']['admin'] = array(
                     'setting/keys' => array(
                         'status' => 1,
                         'title' => 'Keys'
-                        ),
-                    'setting/cache' => array(
-                        'status' => 1,
-                        'title' => 'Cache'
-                        ),
-                    'setting/sitemap' => array(
-                        'status' => 1,
-                        'title' => 'Sitemap'
                         ),
 				)
 		);
