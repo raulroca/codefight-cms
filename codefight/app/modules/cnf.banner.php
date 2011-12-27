@@ -9,18 +9,19 @@ $cnf['banner']['global'] = array(
 			'status' => 1,
 			'sort' => 100,
 			'title' => 'Banner',
+			'url' => 'banner',
 			'parent' => 'top',
 		);
 $cnf['banner']['admin'] = array(
 			'child' => array(
-					'banner/manage' => array(
-                        'status' => 1,
+					0 => array(
+						'url' => 'manage',
 						'title' => 'Manage'
 						),
-					'banner/create' => array(
-                        'status' => 1,
+					1 => array(
+						'url' => 'create',
 						'title' => 'Create New Banner'
 						),
 				)
 		);
-$cnf['banner']['frontend'] = array();/*to be included in future releases*/
+$cnf['banner']['frontend'] = array();

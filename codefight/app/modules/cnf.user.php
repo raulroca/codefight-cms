@@ -14,13 +14,17 @@ $cnf['user']['global'] = array(
 		);
 $cnf['user']['admin'] = array(
 			'child' => array(
-					'user' => array(
+					'user/user' => array(
                         'status' => 1,
 						'title' => 'Users'
 						),
 					'group' => array(
                         'status' => 1,
 						'title' => 'Groups'
+						),
+					'group/permissions' => array(
+                        'status' => 1,
+						'title' => 'Group Permissions'
 						),
 				)
 		);

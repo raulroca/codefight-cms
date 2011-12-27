@@ -40,6 +40,7 @@ $this->cf_block_lib->load('includes/general_js'); ?>
                             'addthis'],
                         addthisId:'dbashyal',
                         startTop : 94,
+                        animate : false,
                         fromPosition:'top'
                     });
                 }

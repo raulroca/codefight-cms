@@ -64,7 +64,7 @@ $autoload['libraries'] = array(
     'cf_simplexml_lib',
     'MY_Language',
     'security',
-    'admin/Cf_module_lib'
+    'module/Cf_module_lib'
 );
 
 
@@ -122,7 +122,13 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('cf_data_model', 'cf_setting_model', 'language_model', 'cf_banner_model', 'cf_helper_model');
+$autoload['model'] = array(
+	'cf_data_model',
+	'cf_setting_model',
+	'language_model',
+	'cf_banner_model',
+	'cf_helper_model',
+    'module/cf_module_model');
 
 
 /* End of file autoload.php */

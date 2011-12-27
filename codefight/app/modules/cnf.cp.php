@@ -7,6 +7,7 @@
  * @todo:: define language file, models, libraries, helpers, controller, routes.
  */
 $cnf['cp']['global'] = array(
+			'void' => 1,
 			'status' => 1,
 			'sort' => 0,
 			'title' => 'Admin',

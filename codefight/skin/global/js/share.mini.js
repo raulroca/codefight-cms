@@ -1,11 +1,3 @@
-/**
- * Created by Damodar Bashyal
- * User: damu
- * Date: 1/10/11
- * Time: 3:24 PM
- * Package: codefight cms share buttons
- * Doc: http://codefight.org/blog/0/119/Social-Share-Plugin
- */
 (function(a){a.fn.extend({cfShare:function(b){function h(a){a=a.toString().toLowerCase().replace(/(?:^|\s)\w/g,function(a){return a.toUpperCase()});return"cf"+a}function i(){var c;a.each(b.shareClients,function(){c=h(this);try{d[c]()}catch(a){console.log(c+" is not a function")}})}function f(c){b.animate===!0?e.stop().animate({top:c}):e.css({padding:b.sharePadding,top:a(window).scrollTop()>b.startTop?0:b.startTop,position:"fixed",margin:"0 7px 4px -572px",left:"50%"})}function g(){if(a(window).width()-
 b.pageWidth>135){var c='<style type="text/css">#sharebox {background: #fff;position: relative;-moz-border-radius: 5px;border-radius: 5px;text-align: center;}#sharebox .cfshare {left: '+b.shareLeft+"px;width: "+b.shareWidth+"px;padding: 5px;position: absolute;top: 0;background-color: #FAFAFA;border: 1px solid #E5E5E5;}#sharebox .cfshare:hover {background-color: "+b.bgColor+";box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);}.cfBtnFloat {display: block;margin: 0 0 10px;}.cfBtnFloatDownload {display: block;margin: 10px 0 0;}.cfBtnFloatDownload a {background: #DEDEDE;border: 1px solid #FAFAFA;color: #FBFBFB;display: block;font-size: 11px;text-decoration: none;}.cfBtnFloatDownload a:hover {color: #693;}.sepFloat{display: block;height: 10px;}.addthisFrap{display: block; text-align: center; margin: 0 auto; width: 50px;}#cfShareClientsFloat a.addthis_button_tweet{width: 70px;}.at300b,.at300b:hover{opacity: 1;}</style>";
 a("div#cfShareStyle").html(c);a("#cfShareClientsFloat:hidden").show();a("#cfShareClientsOriginal:visible").hide();c=d.offset().top;switch(b.fromPosition){case "top":a(window).scrollTop()>b.startTop?f(a(window).scrollTop()-c+b.topPadding):f(b.startTop-c);break;default:a(window).scrollTop()>c?f(a(window).scrollTop()-c+b.topPadding):f(0)}}else e.removeAttr("style"),c='<style type="text/css">#sharebox {background: #fff;position: relative;-moz-border-radius: 5px;border-radius: 5px;margin-bottom: 15px;}#sharebox .cfshare {padding: 5px;background-color: '+
