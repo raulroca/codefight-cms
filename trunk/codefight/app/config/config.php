@@ -18,7 +18,7 @@ if (defined('ENVIRONMENT')) {
     switch (ENVIRONMENT)
     {
         case 'development':
-            $config['base_url'] = "http://np.codefight.org/";
+            $config['base_url'] = "http://nplab.codefight.org/";
             break;
 
         case 'testing':
@@ -202,7 +202,7 @@ $config['directory_trigger'] = 'd'; // experimental not currently in use
 | your log files will fill up very fast.
 |
 */
-$config['log_threshold'] = 0;
+$config['log_threshold'] = 1;
 
 /*
 |--------------------------------------------------------------------------
@@ -266,7 +266,7 @@ $config['encryption_key'] = 's78d6f78sd6f8sd7zx6f8ds6f8s7d6fsd78';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_cookie_name'] = 'ci_session';
+$config['sess_cookie_name'] = 'codefight_' . (defined('ENVIRONMENT') ? ENVIRONMENT : '');
 $config['sess_expiration'] = 7200;
 $config['sess_expire_on_close'] = FALSE;
 $config['sess_encrypt_cookie'] = FALSE;

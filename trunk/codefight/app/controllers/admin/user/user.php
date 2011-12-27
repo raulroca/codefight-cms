@@ -28,7 +28,6 @@
  */
 class User extends MY_Controller
 {
-
     function __construct()
     {
         parent::MY_Controller();

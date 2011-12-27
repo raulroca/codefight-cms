@@ -612,6 +612,8 @@ class Setting extends MY_Controller
     function sitemap()
     {
         $data = array();
+	$this->load->model(array('websites/cf_websites_model'));
+	$data['websites'] = $this->cf_websites_model->get_websites();
 
         $assets = array();
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Dec 27, 2011 at 11:30 AM
+-- Generation Time: Dec 27, 2011 at 11:52 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
@@ -424,12 +424,12 @@ CREATE TABLE IF NOT EXISTS `cf_menu` (
 
 INSERT INTO `cf_menu` (`menu_id`, `menu_active`, `menu_parent_id`, `menu_link`, `menu_params`, `menu_title`, `menu_type`, `menu_meta_title`, `menu_meta_keywords`, `menu_meta_description`, `menu_sort`, `websites_id`) VALUES
 (72, 1, 0, 'codefight-cms-preview-built-with-codeigniter-2.0-framework-demo-code', NULL, 'Preview / Demo', 'page', '', '', '', 4, ',1,'),
-(86, 1, 0, 'releases', NULL, 'Releases', 'blog', '', '', '', 9, ',1,3,'),
+(86, 1, 0, 'releases', '', 'Releases', 'blog', '', '', '', 9, ',1,3,'),
 (71, 1, 0, 'privacy-policy', NULL, 'Privacy Policy', 'page', '', '', '', 8, ',3,4,'),
 (40, 1, 0, 'http://twitter.com/dbashyal', NULL, 'Twitter', 'favourite-links', '', '', '', 1, ',1,2,3,'),
 (41, 1, 0, 'http://www.linkedin.com/in/dbashyal', NULL, 'Linked In', 'favourite-links', '', '', '', 2, ',1,2,3,'),
 (75, 1, 0, 'home', NULL, 'Home', 'page', '', '', '', 0, ',1,2,3,4,'),
-(88, 1, 0, 'jobs', NULL, 'JOBS', 'blog', '', '', '', 20, ',1,'),
+(88, 1, 0, 'jobs', '', 'JOBS', 'blog', '', '', '', 20, ',4,'),
 (69, 1, 0, 'http://zoosper.com', NULL, 'zoosper', 'sponsored-links', '', '', '', 0, ',1,2,3,'),
 (70, 1, 0, 'http://codefight.org/', NULL, 'Codefight CMS', 'blog-roll', '', '', '', 0, ',2,3,4,'),
 (80, 1, 0, 'blog', NULL, 'Blog', 'page', '', '', '', 3, ',1,2,3,4,'),
@@ -439,15 +439,15 @@ INSERT INTO `cf_menu` (`menu_id`, `menu_active`, `menu_parent_id`, `menu_link`, 
 (84, 1, 0, 'http://www.tenthweb.com/forums/viewforum.php?title=codefight.org&f=49', NULL, 'Forum', 'page', '', '', '', 1, ',1,3,'),
 (109, 1, 0, 'advertising', NULL, 'Advertising', 'blog', '', '', '', 1, ',2,'),
 (85, 1, 0, 'search', NULL, 'Search', 'page', '', '', '', 9, ',2,3,4,'),
-(89, 1, 0, 'web-resources', NULL, 'Web Resources', 'blog', '', '', '', 11, ',1,'),
-(90, 1, 0, 'codeigniter', NULL, 'Codeigniter', 'blog', '', '', '', 13, ',1,'),
-(91, 1, 0, 'zend', NULL, 'Zend', 'blog', '', '', '', 12, ',1,'),
-(92, 1, 0, 'magento', NULL, 'Magento', 'blog', '', '', '', 14, ',1,'),
-(93, 1, 0, 'diary', NULL, 'Diary', 'blog', '', '', '', 15, ',1,'),
-(94, 1, 0, 'nepal', NULL, 'Nepal', 'blog', '', '', '', 16, ',1,'),
-(95, 1, 0, 'australia', NULL, 'Australia', 'blog', '', '', '', 17, ',1,'),
-(96, 1, 0, 'guest-articles', NULL, 'Guest Articles', 'blog', '', '', '', 18, ',1,'),
-(97, 1, 0, 'tips', NULL, 'Tips', 'blog', '', '', '', 19, ',1,'),
+(89, 1, 0, 'web-resources', '', 'Web Resources', 'blog', '', '', '', 11, ',4,'),
+(90, 1, 0, 'codeigniter', '', 'Codeigniter', 'blog', '', '', '', 13, ',1,'),
+(91, 1, 0, 'zend', '', 'Zend', 'blog', '', '', '', 12, ',4,'),
+(92, 1, 0, 'magento', '', 'Magento', 'blog', '', '', '', 14, ',4,'),
+(93, 1, 0, 'diary', '', 'Diary', 'blog', '', '', '', 15, ',4,'),
+(94, 1, 0, 'nepal', '', 'Nepal', 'blog', '', '', '', 16, ',1,'),
+(95, 1, 0, 'australia', '', 'Australia', 'blog', '', '', '', 17, ',4,'),
+(96, 1, 0, 'guest-articles', '', 'Guest Articles', 'blog', '', '', '', 18, ',4,'),
+(97, 1, 0, 'tips', '', 'Tips', 'blog', '', '', '', 19, ',4,'),
 (98, 1, 0, 'http://www.shiflett.org/', NULL, 'Chris Shiflett', 'blog-roll', '', '', '', 1, ',1,'),
 (99, 1, 0, 'http://www.derekallard.com/', NULL, 'Derek Allard', 'blog-roll', '', '', '', 3, ',1,'),
 (100, 1, 0, 'http://www.haughin.com/', NULL, 'Elliot Haughin', 'blog-roll', '', '', '', 2, ',1,'),
@@ -458,7 +458,7 @@ INSERT INTO `cf_menu` (`menu_id`, `menu_active`, `menu_parent_id`, `menu_link`, 
 (105, 1, 0, 'http://www.dpbolvw.net/click-3424053-10422157', NULL, 'Host Monster', 'favourite-links', '', '', '', 4, ',1,'),
 (106, 1, 0, 'http://www.facebook.com/codefight', NULL, 'Facebook', 'favourite-links', '', '', '', 0, ',1,'),
 (107, 1, 0, 'http://astore.zoosper.com/node/22/cat/Books', NULL, 'Zoosper Shopping Centre', 'favourite-links', '', '', '', 3, ',1,'),
-(108, 1, 0, 'codefight-cms', NULL, 'CodeFight CMS', 'blog', '', '', '', 10, ',1,'),
+(108, 1, 0, 'codefight-cms', '', 'CodeFight CMS', 'blog', '', '', '', 10, ',1,'),
 (110, 1, 0, 'affiliate-marketing', NULL, 'Affiliate Marketing', 'blog', '', '', '', 2, ',2,'),
 (111, 1, 0, 'google-page-rank', NULL, 'Google Page Rank', 'blog', '', '', '', 5, ',2,'),
 (112, 1, 0, 'search-engine-optimization', NULL, 'Search Engine Optimization', 'blog', '', '', '', 6, ',2,'),
@@ -735,7 +735,7 @@ CREATE TABLE IF NOT EXISTS `cf_page_comment` (
 
 INSERT INTO `cf_page_comment` (`page_comment_id`, `name`, `email`, `comment`, `time`, `url`, `page_id`, `page_url`, `page_comment_status`) VALUES
 (5, 'pending comment', 'pending@comment.com', 'This is pending comment example. Written for feed, incase there are not any.', '2009-03-14 03:48:52', 'http://www.codefight.org/', 7, NULL, 0),
-(4, 'Test Test', 'dbashyal@gmail.com', 'Test only 1st ever comment', '2009-03-13 06:33:30', 'http://www.codefight.org/', 7, NULL, 1);
+(4, 'Test Test', 'enjoygame@hotmail.com', 'Test only 1st ever comment', '2009-03-13 06:33:30', 'http://www.codefight.org/', 7, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -829,6 +829,7 @@ INSERT INTO `cf_setting` (`setting_id`, `setting_key`, `setting_value`, `setting
 (15, 'google_analytics_id', 'UA-852764-5', 'Google Analytics Web Property ID', 'textbox', 'UA-852764-5', 1),
 (16, 'display_view_path', '0', 'Do you want to display template path?', 'radio', '0=NO|1=YES', 1),
 (1, 'websites_id', '1', 'Load settings for website:', 'select', '-', 1),
+
 (71, 'default_template', 'skinmanager', 'Default Template', 'select', '', 3),
 (70, 'meta_description', 'This website hosts just skin files for our websites.', 'Default Meta Description', 'textarea', 'download free content management system built with codeigniter free php framework.', 3),
 (68, 'meta_title', 'Codefight CMS 3', 'Default Meta Title', 'textbox', 'codefight.org', 3),

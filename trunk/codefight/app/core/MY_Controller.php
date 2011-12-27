@@ -52,13 +52,18 @@ class MY_Controller extends CI_Controller
 
         $this->cfModule = $this->uri->segment(1, 'page');
         $this->cfAdminController = $this->uri->segment(2, '0');
-        if (!in_array($this->cfModule, array('registration', 'skin', 'media'))) {
+        if (!in_array($this->cfModule, array('registration', 'skin', 'media', 'favicon.ico'))) {
             $this->session->set_userdata('history', uri_string());
         }
 
-        if ($this->cfModule == 'admin' && $this->cfAdminController != 'cf') {
+        if ($this->cfModule == 'admin' /*&& $this->cfAdminController != 'cf'*/) {
+            require_once APPPATH.DS.'core'.DS.'Admin_Controller.php';
+            $Admin_Controller = new Admin_Controller();
             //Check access rights
-            $this->cf_login_lib->check_login(array('1'));
+            //$this->cf_login_lib->check_login(array('1'));
+        } else {
+            require_once APPPATH.DS.'core'.DS.'Front_Controller.php';
+            $Front_Controller = new Front_Controller();
         }
     }
 
@@ -135,7 +140,6 @@ class MY_Controller extends CI_Controller
 
     public function process_view($data = array(), $master_page = 'mainpage', $module = 'frontend')
     {
-
         //Get available templates, this should be called first
         //as this will get and set default template
         $data['templates'] = $this->cf_setting_model->get_templates();
@@ -174,4 +178,3 @@ class MY_Controller extends CI_Controller
 
 /* End of file MY_Controller.php */
 /* Location: ./app/frontend/libraries/MY_Controller.php */
-?>

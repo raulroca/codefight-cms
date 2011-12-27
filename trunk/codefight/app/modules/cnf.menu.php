@@ -9,7 +9,7 @@ $cnf['menu']['global'] = array(
 			'status' => 1,
 			'sort' => 10,
             'title' => 'Menu',
-            'void' => 0, /*1 = onclick="return false;"*/
+            'void' => 1, /*1 = onclick="return false;"*/
 			'parent' => 'top',
 		);
 $cnf['menu']['admin'] = array(

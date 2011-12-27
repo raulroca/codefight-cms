@@ -73,6 +73,7 @@ class Cp extends MY_Controller
      */
     function update()
     {
+        error_reporting(0);
         $data = '';
 
         $assets = array();
