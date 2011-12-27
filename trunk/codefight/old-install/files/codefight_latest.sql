@@ -3,10 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 02, 2011 at 11:26 AM
+-- Generation Time: Dec 27, 2011 at 11:30 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 --
@@ -19,6 +20,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Table structure for table `cf_banner`
 --
 
+DROP TABLE IF EXISTS `cf_banner`;
 CREATE TABLE IF NOT EXISTS `cf_banner` (
   `banner_id` int(11) NOT NULL AUTO_INCREMENT,
   `banner_title` varchar(64) NOT NULL DEFAULT '',
@@ -47,6 +49,7 @@ CREATE TABLE IF NOT EXISTS `cf_banner` (
 -- Table structure for table `cf_banner_history`
 --
 
+DROP TABLE IF EXISTS `cf_banner_history`;
 CREATE TABLE IF NOT EXISTS `cf_banner_history` (
   `banner_history_id` int(11) NOT NULL AUTO_INCREMENT,
   `banner_id` int(11) NOT NULL DEFAULT '0',
@@ -67,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `cf_banner_history` (
 -- Table structure for table `cf_file`
 --
 
+DROP TABLE IF EXISTS `cf_file`;
 CREATE TABLE IF NOT EXISTS `cf_file` (
   `file_id` int(11) NOT NULL AUTO_INCREMENT,
   `file_title` varchar(255) DEFAULT NULL,
@@ -86,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `cf_file` (
   `file_publish_date` datetime DEFAULT '0000-00-00 00:00:00',
   `file_expire_date` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`file_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `cf_file`
@@ -95,7 +99,8 @@ CREATE TABLE IF NOT EXISTS `cf_file` (
 INSERT INTO `cf_file` (`file_id`, `file_title`, `file_description`, `folder_id`, `file_name`, `file_path`, `file_type`, `file_ext`, `file_size`, `is_image`, `image_width`, `image_height`, `file_access`, `file_access_members`, `file_status`, `file_publish_date`, `file_expire_date`) VALUES
 (11, 'Software Box', 'Codefight software package box', 2, 'Codefight-CMS-A-Codeigniter-CMS.jpg', 'media/gallery/', 'image/jpeg', '.jpg', 191.14, 1, 716, 762, 'public', NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (10, 'Screenshot', 'This is a screenshot image file.', 2, 'codefight-1.2_.0_.png', 'media/gallery/', 'image/png', '.png', 13.76, 1, 720, 285, 'public', NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 'Codefight CMS 2.0 Youtube video', 'Codefight cms preview', 1, 'codefight-cms-2-0-preview.png', 'media/', 'image/png', '.png', 59.80, 1, 500, 296, 'public', NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+(12, 'Codefight CMS 2.0 Youtube video', 'Codefight cms preview', 1, 'codefight-cms-2-0-preview.png', 'media/', 'image/png', '.png', 59.80, 1, 500, 296, 'public', NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(13, 'Penguins', 'Penguins sample image', 1, 'Penguins.jpg', 'media/', 'image/jpeg', '.jpg', 759.60, 1, 1024, 768, 'all', NULL, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -103,6 +108,7 @@ INSERT INTO `cf_file` (`file_id`, `file_title`, `file_description`, `folder_id`,
 -- Table structure for table `cf_folder`
 --
 
+DROP TABLE IF EXISTS `cf_folder`;
 CREATE TABLE IF NOT EXISTS `cf_folder` (
   `folder_id` int(11) NOT NULL AUTO_INCREMENT,
   `folder_parent_id` int(11) NOT NULL DEFAULT '0',
@@ -132,6 +138,7 @@ INSERT INTO `cf_folder` (`folder_id`, `folder_parent_id`, `folder_path`, `folder
 -- Table structure for table `cf_form_data_int`
 --
 
+DROP TABLE IF EXISTS `cf_form_data_int`;
 CREATE TABLE IF NOT EXISTS `cf_form_data_int` (
   `form_submitted_id` int(11) NOT NULL,
   `form_item_id` int(11) NOT NULL,
@@ -150,6 +157,7 @@ CREATE TABLE IF NOT EXISTS `cf_form_data_int` (
 -- Table structure for table `cf_form_data_text`
 --
 
+DROP TABLE IF EXISTS `cf_form_data_text`;
 CREATE TABLE IF NOT EXISTS `cf_form_data_text` (
   `form_submitted_id` int(11) NOT NULL,
   `form_item_id` int(11) NOT NULL,
@@ -171,6 +179,7 @@ INSERT INTO `cf_form_data_text` (`form_submitted_id`, `form_item_id`, `form_item
 -- Table structure for table `cf_form_data_varchar`
 --
 
+DROP TABLE IF EXISTS `cf_form_data_varchar`;
 CREATE TABLE IF NOT EXISTS `cf_form_data_varchar` (
   `form_submitted_id` int(11) NOT NULL,
   `form_item_id` int(11) NOT NULL,
@@ -196,6 +205,7 @@ INSERT INTO `cf_form_data_varchar` (`form_submitted_id`, `form_item_id`, `form_i
 -- Table structure for table `cf_form_group`
 --
 
+DROP TABLE IF EXISTS `cf_form_group`;
 CREATE TABLE IF NOT EXISTS `cf_form_group` (
   `form_group_id` int(11) NOT NULL AUTO_INCREMENT,
   `form_group_name` varchar(25) DEFAULT NULL,
@@ -217,6 +227,7 @@ INSERT INTO `cf_form_group` (`form_group_id`, `form_group_name`, `form_group_ide
 -- Table structure for table `cf_form_item`
 --
 
+DROP TABLE IF EXISTS `cf_form_item`;
 CREATE TABLE IF NOT EXISTS `cf_form_item` (
   `form_item_id` int(11) NOT NULL AUTO_INCREMENT,
   `form_item_name` varchar(50) NOT NULL,
@@ -251,6 +262,7 @@ INSERT INTO `cf_form_item` (`form_item_id`, `form_item_name`, `form_item_label`,
 -- Table structure for table `cf_form_item_to_group`
 --
 
+DROP TABLE IF EXISTS `cf_form_item_to_group`;
 CREATE TABLE IF NOT EXISTS `cf_form_item_to_group` (
   `form_group_id` int(11) NOT NULL,
   `form_item_id` int(11) NOT NULL,
@@ -277,6 +289,7 @@ INSERT INTO `cf_form_item_to_group` (`form_group_id`, `form_item_id`, `form_item
 -- Table structure for table `cf_form_submitted`
 --
 
+DROP TABLE IF EXISTS `cf_form_submitted`;
 CREATE TABLE IF NOT EXISTS `cf_form_submitted` (
   `form_submitted_id` int(11) NOT NULL AUTO_INCREMENT,
   `form_group_id` int(11) NOT NULL,
@@ -299,6 +312,7 @@ INSERT INTO `cf_form_submitted` (`form_submitted_id`, `form_group_id`, `form_sta
 -- Table structure for table `cf_group`
 --
 
+DROP TABLE IF EXISTS `cf_group`;
 CREATE TABLE IF NOT EXISTS `cf_group` (
   `group_id` int(11) NOT NULL AUTO_INCREMENT,
   `group_title` varchar(255) NOT NULL,
@@ -321,9 +335,73 @@ INSERT INTO `cf_group` (`group_id`, `group_title`, `group_description`, `group_s
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cf_group_permission`
+--
+
+DROP TABLE IF EXISTS `cf_group_permission`;
+CREATE TABLE IF NOT EXISTS `cf_group_permission` (
+  `group_id` int(11) NOT NULL,
+  `module_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `cf_group_permission`
+--
+
+INSERT INTO `cf_group_permission` (`group_id`, `module_id`) VALUES
+(1, 0),
+(1, 1),
+(1, 11),
+(1, 12),
+(1, 2),
+(1, 13),
+(1, 14),
+(1, 15),
+(1, 16),
+(1, 17),
+(1, 18),
+(1, 3),
+(1, 19),
+(1, 20),
+(1, 21),
+(1, 4),
+(1, 22),
+(1, 23),
+(1, 24),
+(1, 5),
+(1, 25),
+(1, 26),
+(1, 27),
+(1, 6),
+(1, 28),
+(1, 29),
+(1, 7),
+(1, 30),
+(1, 31),
+(1, 32),
+(1, 33),
+(1, 34),
+(1, 35),
+(1, 8),
+(1, 9),
+(1, 36),
+(1, 37),
+(1, 38),
+(1, 39),
+(1, 40),
+(1, 41),
+(1, 10),
+(1, 42),
+(1, 43),
+(1, 44);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cf_menu`
 --
 
+DROP TABLE IF EXISTS `cf_menu`;
 CREATE TABLE IF NOT EXISTS `cf_menu` (
   `menu_id` int(11) NOT NULL AUTO_INCREMENT,
   `menu_active` int(1) NOT NULL DEFAULT '0',
@@ -396,9 +474,80 @@ INSERT INTO `cf_menu` (`menu_id`, `menu_active`, `menu_parent_id`, `menu_link`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `cf_module`
+--
+
+DROP TABLE IF EXISTS `cf_module`;
+CREATE TABLE IF NOT EXISTS `cf_module` (
+  `module_id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `sort` int(11) NOT NULL DEFAULT '1',
+  `url` varchar(255) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `void` int(11) NOT NULL DEFAULT '0',
+  `menu` text NOT NULL,
+  `child` text NOT NULL,
+  PRIMARY KEY (`module_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
+
+--
+-- Dumping data for table `cf_module`
+--
+
+INSERT INTO `cf_module` (`module_id`, `parent`, `status`, `sort`, `url`, `title`, `void`, `menu`, `child`) VALUES
+(1, 'top', 1, 1, 'cp', 'Admin', 1, 'a:4:{s:4:"void";i:1;s:3:"url";s:2:"cp";s:5:"title";s:5:"Admin";s:5:"child";a:2:{s:5:"cp/cp";a:3:{s:4:"void";i:0;s:3:"url";s:5:"cp/cp";s:5:"title";s:4:"Home";}s:9:"cp/update";a:3:{s:4:"void";i:0;s:3:"url";s:9:"cp/update";s:5:"title";s:17:"Codefight Updates";}}}', 'a:2:{i:0;s:5:"cp/cp";i:1;s:9:"cp/update";}'),
+(2, 'top', 1, 4, 'menu', 'Menu', 1, 'a:4:{s:4:"void";i:1;s:3:"url";s:4:"menu";s:5:"title";s:4:"Menu";s:5:"child";a:6:{s:9:"menu/page";a:3:{s:4:"void";i:0;s:3:"url";s:9:"menu/page";s:5:"title";s:10:"Page Links";}s:9:"menu/blog";a:3:{s:4:"void";i:0;s:3:"url";s:9:"menu/blog";s:5:"title";s:15:"Blog Categories";}s:14:"menu/blog-roll";a:3:{s:4:"void";i:0;s:3:"url";s:14:"menu/blog-roll";s:5:"title";s:9:"Blog Roll";}s:16:"menu/classifieds";a:3:{s:4:"void";i:0;s:3:"url";s:16:"menu/classifieds";s:5:"title";s:21:"Classified Categories";}s:20:"menu/favourite-links";a:3:{s:4:"void";i:0;s:3:"url";s:20:"menu/favourite-links";s:5:"title";s:15:"Favourite Links";}s:20:"menu/sponsored-links";a:3:{s:4:"void";i:0;s:3:"url";s:20:"menu/sponsored-links";s:5:"title";s:15:"Sponsored Links";}}}', 'a:6:{i:0;s:9:"menu/page";i:1;s:9:"menu/blog";i:2;s:14:"menu/blog-roll";i:3;s:16:"menu/classifieds";i:4;s:20:"menu/favourite-links";i:5;s:20:"menu/sponsored-links";}'),
+(3, 'top', 1, 11, 'user', 'User', 1, 'a:4:{s:4:"void";i:1;s:3:"url";s:4:"user";s:5:"title";s:4:"User";s:5:"child";a:3:{s:9:"user/user";a:3:{s:4:"void";i:0;s:3:"url";s:9:"user/user";s:5:"title";s:5:"Users";}s:5:"group";a:3:{s:4:"void";i:0;s:3:"url";s:5:"group";s:5:"title";s:6:"Groups";}s:17:"group/permissions";a:3:{s:4:"void";i:0;s:3:"url";s:17:"group/permissions";s:5:"title";s:17:"Group Permissions";}}}', 'a:3:{i:0;s:9:"user/user";i:1;s:5:"group";i:2;s:17:"group/permissions";}'),
+(4, 'top', 1, 15, 'form', 'Form', 0, 'a:4:{s:4:"void";i:0;s:3:"url";s:4:"form";s:5:"title";s:4:"Form";s:5:"child";a:3:{s:9:"form/item";a:3:{s:4:"void";i:0;s:3:"url";s:9:"form/item";s:5:"title";s:5:"Items";}s:10:"form/group";a:3:{s:4:"void";i:0;s:3:"url";s:10:"form/group";s:5:"title";s:5:"Group";}s:14:"menu/submitted";a:3:{s:4:"void";i:0;s:3:"url";s:14:"menu/submitted";s:5:"title";s:9:"Submitted";}}}', 'a:3:{i:0;s:9:"form/item";i:1;s:10:"form/group";i:2;s:14:"menu/submitted";}'),
+(5, 'top', 1, 19, 'page', 'CMS', 1, 'a:4:{s:4:"void";i:1;s:3:"url";s:4:"page";s:5:"title";s:3:"CMS";s:5:"child";a:3:{s:9:"page/page";a:3:{s:4:"void";i:0;s:3:"url";s:9:"page/page";s:5:"title";s:11:"Static Page";}s:9:"page/blog";a:3:{s:4:"void";i:0;s:3:"url";s:9:"page/blog";s:5:"title";s:12:"Blog Article";}s:10:"page/block";a:3:{s:4:"void";i:1;s:3:"url";s:10:"page/block";s:5:"title";s:13:"Static Blocks";}}}', 'a:3:{i:0;s:9:"page/page";i:1;s:9:"page/blog";i:2;s:10:"page/block";}'),
+(6, 'top', 1, 23, 'comment', 'Comments', 0, 'a:4:{s:4:"void";i:0;s:3:"url";s:7:"comment";s:5:"title";s:8:"Comments";s:5:"child";a:2:{s:23:"comment/pending-comment";a:3:{s:4:"void";i:0;s:3:"url";s:23:"comment/pending-comment";s:5:"title";s:16:"Pending Comments";}s:24:"comment/approved-comment";a:3:{s:4:"void";i:0;s:3:"url";s:24:"comment/approved-comment";s:5:"title";s:17:"Approved Comments";}}}', 'a:2:{i:0;s:23:"comment/pending-comment";i:1;s:24:"comment/approved-comment";}'),
+(7, 'top', 1, 26, 'media', 'Media', 1, 'a:4:{s:4:"void";i:1;s:3:"url";s:5:"media";s:5:"title";s:5:"Media";s:5:"child";a:2:{s:4:"file";a:4:{s:4:"void";i:1;s:3:"url";s:4:"file";s:5:"title";s:12:"File Manager";s:5:"child";a:2:{s:16:"file/manage-file";a:3:{s:4:"void";i:0;s:3:"url";s:16:"file/manage-file";s:5:"title";s:12:"Manage Files";}s:16:"file/upload-file";a:3:{s:4:"void";i:0;s:3:"url";s:16:"file/upload-file";s:5:"title";s:11:"Upload File";}}}s:6:"folder";a:4:{s:4:"void";i:1;s:3:"url";s:6:"folder";s:5:"title";s:14:"Folder Manager";s:5:"child";a:2:{s:20:"folder/manage-folder";a:3:{s:4:"void";i:0;s:3:"url";s:20:"folder/manage-folder";s:5:"title";s:14:"Manage Folders";}s:20:"folder/create-folder";a:3:{s:4:"void";i:0;s:3:"url";s:20:"folder/create-folder";s:5:"title";s:13:"Create Folder";}}}}}', 'a:2:{i:0;s:4:"file";i:1;s:6:"folder";}'),
+(8, 'top', 1, 33, 'banner', 'Banner', 0, 'a:4:{s:4:"void";i:0;s:3:"url";s:6:"banner";s:5:"title";s:6:"Banner";s:5:"child";a:0:{}}', ''),
+(9, 'top', 1, 34, 'tools', 'Tools', 1, 'a:4:{s:4:"void";i:1;s:3:"url";s:5:"tools";s:5:"title";s:5:"Tools";s:5:"child";a:4:{s:13:"modulecreator";a:4:{s:4:"void";i:1;s:3:"url";s:13:"modulecreator";s:5:"title";s:6:"Module";s:5:"child";a:2:{s:20:"modulecreator/create";a:3:{s:4:"void";i:0;s:3:"url";s:20:"modulecreator/create";s:5:"title";s:6:"Create";}s:15:"moduleinstaller";a:3:{s:4:"void";i:0;s:3:"url";s:15:"moduleinstaller";s:5:"title";s:7:"Install";}}}s:13:"setting/cache";a:3:{s:4:"void";i:0;s:3:"url";s:13:"setting/cache";s:5:"title";s:11:"Clear Cache";}s:15:"setting/sitemap";a:3:{s:4:"void";i:0;s:3:"url";s:15:"setting/sitemap";s:5:"title";s:16:"Generate Sitemap";}s:4:"trim";a:3:{s:4:"void";i:0;s:3:"url";s:4:"trim";s:5:"title";s:11:"Shorten URL";}}}', 'a:4:{i:0;s:13:"modulecreator";i:1;s:13:"setting/cache";i:2;s:15:"setting/sitemap";i:3;s:4:"trim";}'),
+(10, 'top', 1, 41, 'setting', 'Settings', 1, 'a:4:{s:4:"void";i:1;s:3:"url";s:7:"setting";s:5:"title";s:8:"Settings";s:5:"child";a:3:{s:12:"setting/site";a:3:{s:4:"void";i:0;s:3:"url";s:12:"setting/site";s:5:"title";s:8:"Defaults";}s:16:"setting/websites";a:3:{s:4:"void";i:0;s:3:"url";s:16:"setting/websites";s:5:"title";s:8:"Websites";}s:12:"setting/keys";a:3:{s:4:"void";i:0;s:3:"url";s:12:"setting/keys";s:5:"title";s:4:"Keys";}}}', 'a:3:{i:0;s:12:"setting/site";i:1;s:16:"setting/websites";i:2;s:12:"setting/keys";}'),
+(11, 'cp', 1, 2, 'cp/cp', 'Home', 0, '', ''),
+(12, 'cp', 1, 3, 'cp/update', 'Codefight Updates', 0, '', ''),
+(13, 'menu', 1, 5, 'menu/page', 'Page Links', 0, '', ''),
+(14, 'menu', 1, 6, 'menu/blog', 'Blog Categories', 0, '', ''),
+(15, 'menu', 1, 7, 'menu/blog-roll', 'Blog Roll', 0, '', ''),
+(16, 'menu', 1, 8, 'menu/classifieds', 'Classified Categories', 0, '', ''),
+(17, 'menu', 1, 9, 'menu/favourite-links', 'Favourite Links', 0, '', ''),
+(18, 'menu', 1, 10, 'menu/sponsored-links', 'Sponsored Links', 0, '', ''),
+(19, 'user', 1, 12, 'user/user', 'Users', 0, '', ''),
+(20, 'user', 1, 13, 'group', 'Groups', 0, '', ''),
+(21, 'user', 1, 14, 'group/permissions', 'Group Permissions', 0, '', ''),
+(22, 'form', 1, 16, 'form/item', 'Items', 0, '', ''),
+(23, 'form', 1, 17, 'form/group', 'Group', 0, '', ''),
+(24, 'form', 1, 18, 'menu/submitted', 'Submitted', 0, '', ''),
+(25, 'page', 1, 20, 'page/page', 'Static Page', 0, '', ''),
+(26, 'page', 1, 21, 'page/blog', 'Blog Article', 0, '', ''),
+(27, 'page', 1, 22, 'page/block', 'Static Blocks', 1, '', ''),
+(28, 'comment', 1, 24, 'comment/pending-comment', 'Pending Comments', 0, '', ''),
+(29, 'comment', 1, 25, 'comment/approved-comment', 'Approved Comments', 0, '', ''),
+(30, 'media', 1, 27, 'file', 'File Manager', 1, '', 'a:2:{i:0;s:16:"file/manage-file";i:1;s:16:"file/upload-file";}'),
+(31, 'file', 1, 28, 'file/manage-file', 'Manage Files', 0, '', ''),
+(32, 'file', 1, 29, 'file/upload-file', 'Upload File', 0, '', ''),
+(33, 'media', 1, 30, 'folder', 'Folder Manager', 1, '', 'a:2:{i:0;s:20:"folder/manage-folder";i:1;s:20:"folder/create-folder";}'),
+(34, 'folder', 1, 31, 'folder/manage-folder', 'Manage Folders', 0, '', ''),
+(35, 'folder', 1, 32, 'folder/create-folder', 'Create Folder', 0, '', ''),
+(36, 'tools', 1, 35, 'modulecreator', 'Module', 1, '', 'a:2:{i:0;s:20:"modulecreator/create";i:1;s:15:"moduleinstaller";}'),
+(37, 'modulecreator', 1, 36, 'modulecreator/create', 'Create', 0, '', ''),
+(38, 'modulecreator', 1, 37, 'moduleinstaller', 'Install', 0, '', ''),
+(39, 'tools', 1, 38, 'setting/cache', 'Clear Cache', 0, '', ''),
+(40, 'tools', 1, 39, 'setting/sitemap', 'Generate Sitemap', 0, '', ''),
+(41, 'tools', 1, 40, 'trim', 'Shorten URL', 0, '', ''),
+(42, 'setting', 1, 42, 'setting/site', 'Defaults', 0, '', ''),
+(43, 'setting', 1, 43, 'setting/websites', 'Websites', 0, '', ''),
+(44, 'setting', 1, 44, 'setting/keys', 'Keys', 0, '', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `cf_page`
 --
 
+DROP TABLE IF EXISTS `cf_page`;
 CREATE TABLE IF NOT EXISTS `cf_page` (
   `page_id` int(11) NOT NULL AUTO_INCREMENT,
   `page_active` int(1) NOT NULL DEFAULT '0',
@@ -444,7 +593,7 @@ INSERT INTO `cf_page` (`page_id`, `page_active`, `page_code`, `page_title`, `pag
 (72, 1, NULL, 'About Us', '<p>We are a collection of professionals focused on the benefits of text link ads.&nbsp;    Our goal is to build a long-standing, comprehensive review website of internet    marketers and affiliate marketers. Differing from most websites, we aim to develop    relationships, observe the internet atmosphere, and report our observations    and experiences to you, the consumer.&nbsp; We want you to benefit from our    observations, reports, and informational blogs for years to come, so we will    work hard to cement our professional review site in the industry.</p>\n<p>Yes, we love to hear constructive feedbacks from our visitors, guests and members.</p>\n<p>Yes, we read every comment.&nbsp; We enjoy reading and manually approving each    comment -- you are heard and don''t go unnoticed.</p>\n<p>We will try to scrub all the details before publishing, and we would love to    hear if we miss any spots.</p>\n<p>Thank you for your assistance and continued membership.</p>\n<p>Kind regards,</p>\n<p>TextLinkAdsReview.com</p>', 0, '<p>We are a collection of professionals focused on the benefits of text link ads.&nbsp;    Our goal is to build a long-standing, comprehensive review website of internet    marketers and affiliate marketers. Differing from most websites, we aim to develop    relationships, observe the internet atmosphere, and report our observations    and experiences to you, the consumer.&nbsp; We want you to benefit from our    observations, reports, and informational blogs for years to come, so we will    work hard to cement our professional review site in the industry.</p>\n<p>Yes, we love to hear constructive feedbacks from our visitors, guests and members.</p>\n<p>Yes, we read every comment.&nbsp; We enjoy reading and manually approving each    comment -- you are heard and don''t go unnoticed.</p>\n<p>We will try to scrub all the details before publishing, and we would love to    hear if we miss any spots.</p>\n<p>Thank you for your assistance and continued membership.</p>\n<p>Kind regards,</p>\n<p>TextLinkAdsReview.com</p>', ',82,', ',2,', '', 0, '2010-01-20 00:00:00', NULL, 0, '', 0, 'page', 1, 'About Us - Text Link Ads Review', 'about us, text link ads review,about text link ads review, about TLAr', 'Our goal is to build a long-standing, comprehensive review website of internet marketers and affiliate marketers.', 0),
 (73, 1, NULL, 'Search Text Link Ads Review', '<form action="http://textlinkadsreview.com/search/">\r\n<div><input name="cx" type="hidden" value="partner-pub-9567128729272204:5rf39g-1qd8" /> <input name="cof" type="hidden" value="FORID:11" /> <input name="ie" type="hidden" value="ISO-8859-1" /> <input name="q" size="31" type="text" /> <input name="sa" type="submit" value="Search" /></div>\r\n</form>\r\n<p>\r\n<script src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en" type="text/javascript"></script>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<script type="text/javascript"><!--\r\n  var googleSearchIframeName = "cse-search-results";\r\n  var googleSearchFormName = "cse-search-box";\r\n  var googleSearchFrameWidth = 795;\r\n  var googleSearchDomain = "www.google.com";\r\n  var googleSearchPath = "/cse";\r\n// --></script>\r\n<script src="http://www.google.com/afsonline/show_afs_search.js" type="text/javascript"></script>\r\n</p>', 0, '<form action="http://textlinkadsreview.com/search/">\r\n<div><input name="cx" type="hidden" value="partner-pub-9567128729272204:5rf39g-1qd8" /> <input name="cof" type="hidden" value="FORID:11" /> <input name="ie" type="hidden" value="ISO-8859-1" /> <input name="q" size="31" type="text" /> <input name="sa" type="submit" value="Search" /></div>\r\n</form>\r\n<p>\r\n<script src="http://www.google.com/cse/brand?form=cse-search-box&amp;lang=en" type="text/javascript"></script>\r\n</p>\r\n<p>&nbsp;</p>\r\n<p>\r\n<script type="text/javascript"><!--\r\n  var googleSearchIframeName = "cse-search-results";\r\n  var googleSearchFormName = "cse-search-box";\r\n  var googleSearchFrameWidth = 795;\r\n  var googleSearchDomain = "www.google.com";\r\n  var googleSearchPath = "/cse";\r\n// --></script>\r\n<script src="http://www.google.com/afsonline/show_afs_search.js" type="text/javascript"></script>\r\n</p>', ',0,', ',0,', '', 0, '2010-01-21 00:00:00', NULL, 0, '', 0, 'page', 0, 'Search Text Link Ads Review - TextLinkAdsReview.com', 'Google,Search, text link ads review,search text link ads review, search TLAr', 'Google Search for Text Link Ads Review.', 0),
 (74, 1, NULL, 'Online Advertising | Text Link Ads | Banner Ads', '<p>Text link advertising is currently one of the most popular methods of internet    marketing. Here at TextLinkAdsReview.com, we realize the importance of text    link advertising in our modern marketing world, so we will write reviews on    different text link advertisement options. Whether you want to sell text link    ads or you want to buy text link ads, we have listed and reviewed many different    text link agencies on our website, and we are continuously working to review    more advertising options for your business.</p>\n<p>We realize there are many advertising companies and text link brokers available    to you, and only TextLinkAdsReview.com will review these many companies and    offer information to help you find the best marketing agency for your business.    These agencies charge a miniscule commission to find your ideal advertising    fit, but the advertising will help you increase your Google page rank slowly    by time.</p>\n<p>Text link ads are very positive for your business.&nbsp; They boost your SEO    (Search Engine Optimization) rating, and they are often better than pay-per-click    (PPC) advertising. PPC advertising can often lead to revenue-sharing clicking    - when a website that shares revenues with yours influences friends or family    to click your banner to decrease your revenue (and increase their own).&nbsp;    Also, because visitors trust text link ads more than flashy banners, visitors    are more apt to click text link ads.&nbsp; Viewed as a recommendation from the    site owner, a text link ad draws more traffic to your site.&nbsp; As for those    who own well-established, high-traffic sites, you can sell space on your site    to text link advertisers. Whether you would like to purchase text link space    or you would like to rent space on your site, the text link advertising business    is a win-win:&nbsp; You could either receive higher potential buyer traffic    for a flat fee, or you could receive residual income -- monthly rental income    that your don''t have to work for.</p>\n<p>There are numerous top advertising agencies who offer online and offline advertising    options, and our aim is to include most of them in our reviews. So keep in touch    with our blog posts and subscribe to our RSS.</p>\n<p>-TextLinkAdsReview.com</p>', 0, '<p>Text link advertising is currently one of the most popular methods of internet    marketing. Here at TextLinkAdsReview.com, we realize the importance of text    link advertising in our modern marketing world, so we will write reviews on    different text link advertisement options. Whether you want to sell text link    ads or you want to buy text link ads, we have listed and reviewed many different    text link agencies on our website, and we are continuously working to review    more advertising options for your business.</p>\n<p>We realize there are many advertising companies and text link brokers available    to you, and only TextLinkAdsReview.com will review these many companies and    offer information to help you find the best marketing agency for your business.    These agencies charge a miniscule commission to find your ideal advertising    fit, but the advertising will help you increase your Google page rank slowly    by time.</p>\n<p>Text link ads are very positive for your business.&nbsp; They boost your SEO    (Search Engine Optimization) rating, and they are often better than pay-per-click    (PPC) advertising. PPC advertising can often lead to revenue-sharing clicking    - when a website that shares revenues with yours influences friends or family    to click your banner to decrease your revenue (and increase their own).&nbsp;    Also, because visitors trust text link ads more than flashy banners, visitors    are more apt to click text link ads.&nbsp; Viewed as a recommendation from the    site owner, a text link ad draws more traffic to your site.&nbsp; As for those    who own well-established, high-traffic sites, you can sell space on your site    to text link advertisers. Whether you would like to purchase text link space    or you would like to rent space on your site, the text link advertising business    is a win-win:&nbsp; You could either receive higher potential buyer traffic    for a flat fee, or you could receive residual income -- monthly rental income    that your don''t have to work for.</p>\n<p>There are numerous top advertising agencies who offer online and offline advertising    options, and our aim is to include most of them in our reviews. So keep in touch    with our blog posts and subscribe to our RSS.</p>\n<p>-TextLinkAdsReview.com</p>', ',75,', ',2,', '', 0, '2010-01-20 00:00:00', NULL, 0, '', 0, 'page', 0, 'Text Link Ads Review | Buy Text Link Ads | Sell Text Link Ads', 'buying,selling,monetizing,text,link,advertising,banner,ppc', 'We review different Advertising Platforms like Text Link Ads and many more.', 0),
-(100, 1, NULL, 'My Experience with CodeIgniter', '<p>CodeIgniter is not just a web development app, it is a powerful PHP-based framework designed for PHP coders seeking simple yet effective toolkit that can inspire them to develop full-featured web applications. Developers like me live in the real world. We need to deal with all of the hassles of shared <a href="http://www.webhostgear.com/" target="_blank"> hosting </a> accounts and clients with short deadlines. We don''t need to hassle around with inadequate and mediocre development tools hampered by poorly-designed user interfaces and thin documentation. CodeIgniter solves these problems so I can focus on other, more pressing issues.</p>\r\n<p>', 0, '<p>CodeIgniter is not just a web development app, it is a powerful PHP-based framework designed for PHP coders seeking simple yet effective toolkit that can inspire them to develop full-featured web applications. Developers like me live in the real world. We need to deal with all of the hassles of shared <a href="http://www.webhostgear.com/" target="_blank"> hosting </a> accounts and clients with short deadlines. We don''t need to hassle around with inadequate and mediocre development tools hampered by poorly-designed user interfaces and thin documentation. CodeIgniter solves these problems so I can focus on other, more pressing issues.</p>\r\n<p><!-- pagebreak --></p>\r\n<p>CodeIgniter allows me to save time and energy by providing tools and templates that give me a head start in the PHP game. Instead of writing PHP code by scratch, CodeIgniter writes all the basic "plumbing" for me so I can focus on the particulars of my project. I, for example, frequently take advantage of CodeIgniter''s built-in libraries instead of writing everything myself. With CodeIgniter, you can easily organize the different sections of the PHP application including configuration files, controllers, models, scripts and views. In the past I found many PHP development environments (IDEs) to be clunky, out-dated, and unmanageable. CodeIgniter is different. Its easy-to-use IDE gives you access to all of your files in a clear, organized fashion. It is simple and intuitive, allowing you to create great web pages with little prep-time.</p>\r\n<p>One thing that sets CodeIgniter apart from many other PHP web development applications is that it easily handles all PHP versions and configurations, an important feature for developers who work in diverse environments with many different clients, each having their own <a href="http://www.webhostgear.com/php-hosting.php/" target="_blank"> PHP web hosting </a> solution. If you are like me, you hardly spend all of your time in heterogeneous environments. That doesn''t matter with CodeIgniter. It will happily work with whatever version or versions you want!</p>\r\n<p>CodeIgniter does not require command lines, inflexible coding frameworks, or any templating languages (although it can work with templates if that is your cup of tea; it just doesn''t force you to do so). The documentation is clearly written so that even non-techies can grasp the system quickly and with minimal effort. It even comes stock with a number of useful features such as classes for file uploading, email, FTP and Zip compression. Another class I found handy was the validation class, which allows you to handle data validation with rules that are defined and assigned to specific objects. You can also use data validation to create automatic error messages when data does not pass muster.</p>\r\n<p>The auto-loading feature allows you to implement changes application wide by setting global models for libraries and plugins. Its included helpers cover CAPTCHA, cookie, directory, download, form, HTML, email, security and XML. If there is one thing CodeIgniter excels at, it''s saving you time. It should be pretty clear to you now that CodeIgniter it full of time-saving features helping you to focus less on mundane details and more on your job''s specifics.</p>\r\n<p>CodeIgniter even lets you create your own libraries -- or more precisely folders of classes in your libraries directory. You can create completely new libraries, or you can extend or replace native libraries. All classes can be extended or replaced except for the database classes. If you''re familiar with object-oriented programming, this feature will be a godsend for you.</p>\r\n<p>You can also create your own core system classes with this application. The core system classes are run automatically every time you start the program. CodeIgniter allows you to extend, edit or completely replace the native core system classes with your own alternatives although this is only recommended for experienced coders.</p>\r\n<p>CodeIgniter was a breeze for me to install. It requires PHP version 4.3.2 or newer and one of the following databases: MySQL, MySQLi, MS SQL, ODBC, Oracle, Postgre or SQLite. Most people (myself included) use MySQL, but it''s good to know it supports some of the other big names.</p>\r\n<p>Best of all, CodeIgniter is available as freeware so there is no charge for downloading and using this software! Even though EllisLab Network offers the CodeIgniter software free of charge, they still provide user forums, a wiki and a bug tracker to help support the application and its community of users.</p>\r\n<p>If you are looking for the best way to streamline your PHP web development process, then CodeIgniter may be just the application that you need - I know it was for me.</p>', ',96,', ',1,', 'Seth Bryant', 1, '2011-04-15 01:41:40', NULL, 1, 'codeigniter', 1, 'blog', 729, 'My Experience with CodeIgniter', 'codeigniter,codefight', 'With CodeIgniter, you can easily organize the different sections of the PHP application including configuration files, controllers, models, scripts and views.', 0),
+(100, 1, NULL, 'My Experience with CodeIgniter', '<p>CodeIgniter is not just a web development app, it is a powerful PHP-based framework designed for PHP coders seeking simple yet effective toolkit that can inspire them to develop full-featured web applications. Developers like me live in the real world. We need to deal with all of the hassles of shared <a href="http://www.webhostgear.com/" target="_blank"> hosting </a> accounts and clients with short deadlines. We don''t need to hassle around with inadequate and mediocre development tools hampered by poorly-designed user interfaces and thin documentation. CodeIgniter solves these problems so I can focus on other, more pressing issues.</p>\r\n<p>', 0, '<p>CodeIgniter is not just a web development app, it is a powerful PHP-based framework designed for PHP coders seeking simple yet effective toolkit that can inspire them to develop full-featured web applications. Developers like me live in the real world. We need to deal with all of the hassles of shared <a href="http://www.webhostgear.com/" target="_blank"> hosting </a> accounts and clients with short deadlines. We don''t need to hassle around with inadequate and mediocre development tools hampered by poorly-designed user interfaces and thin documentation. CodeIgniter solves these problems so I can focus on other, more pressing issues.</p>\r\n<p><!-- pagebreak --></p>\r\n<p>CodeIgniter allows me to save time and energy by providing tools and templates that give me a head start in the PHP game. Instead of writing PHP code by scratch, CodeIgniter writes all the basic "plumbing" for me so I can focus on the particulars of my project. I, for example, frequently take advantage of CodeIgniter''s built-in libraries instead of writing everything myself. With CodeIgniter, you can easily organize the different sections of the PHP application including configuration files, controllers, models, scripts and views. In the past I found many PHP development environments (IDEs) to be clunky, out-dated, and unmanageable. CodeIgniter is different. Its easy-to-use IDE gives you access to all of your files in a clear, organized fashion. It is simple and intuitive, allowing you to create great web pages with little prep-time.</p>\r\n<p>One thing that sets CodeIgniter apart from many other PHP web development applications is that it easily handles all PHP versions and configurations, an important feature for developers who work in diverse environments with many different clients, each having their own <a href="http://www.webhostgear.com/php-hosting.php/" target="_blank"> PHP web hosting </a> solution. If you are like me, you hardly spend all of your time in heterogeneous environments. That doesn''t matter with CodeIgniter. It will happily work with whatever version or versions you want!</p>\r\n<p>CodeIgniter does not require command lines, inflexible coding frameworks, or any templating languages (although it can work with templates if that is your cup of tea; it just doesn''t force you to do so). The documentation is clearly written so that even non-techies can grasp the system quickly and with minimal effort. It even comes stock with a number of useful features such as classes for file uploading, email, FTP and Zip compression. Another class I found handy was the validation class, which allows you to handle data validation with rules that are defined and assigned to specific objects. You can also use data validation to create automatic error messages when data does not pass muster.</p>\r\n<p>The auto-loading feature allows you to implement changes application wide by setting global models for libraries and plugins. Its included helpers cover CAPTCHA, cookie, directory, download, form, HTML, email, security and XML. If there is one thing CodeIgniter excels at, it''s saving you time. It should be pretty clear to you now that CodeIgniter it full of time-saving features helping you to focus less on mundane details and more on your job''s specifics.</p>\r\n<p>CodeIgniter even lets you create your own libraries -- or more precisely folders of classes in your libraries directory. You can create completely new libraries, or you can extend or replace native libraries. All classes can be extended or replaced except for the database classes. If you''re familiar with object-oriented programming, this feature will be a godsend for you.</p>\r\n<p>You can also create your own core system classes with this application. The core system classes are run automatically every time you start the program. CodeIgniter allows you to extend, edit or completely replace the native core system classes with your own alternatives although this is only recommended for experienced coders.</p>\r\n<p>CodeIgniter was a breeze for me to install. It requires PHP version 4.3.2 or newer and one of the following databases: MySQL, MySQLi, MS SQL, ODBC, Oracle, Postgre or SQLite. Most people (myself included) use MySQL, but it''s good to know it supports some of the other big names.</p>\r\n<p>Best of all, CodeIgniter is available as freeware so there is no charge for downloading and using this software! Even though EllisLab Network offers the CodeIgniter software free of charge, they still provide user forums, a wiki and a bug tracker to help support the application and its community of users.</p>\r\n<p>If you are looking for the best way to streamline your PHP web development process, then CodeIgniter may be just the application that you need - I know it was for me.</p>', ',96,', ',1,', 'Seth Bryant', 1, '2011-04-15 01:41:40', NULL, 1, 'codeigniter', 1, 'blog', 757, 'My Experience with CodeIgniter', 'codeigniter,codefight', 'With CodeIgniter, you can easily organize the different sections of the PHP application including configuration files, controllers, models, scripts and views.', 0),
 (102, 1, NULL, 'Advertising in Applications', '<p>As iPads and other tablets become more popular, internet advertisers are attempting to tap into the new marketing potential. From magazines to game applications, many companies are finding innovative ways to capture the attention of tablet users. Let''s look at some ways companies are changing the face of advertising.</p>\r\n<h2>Traditional Advertising</h2>\r\n<p>Magazines with traditional advertising tactics of using edgy, attention-grabbing ads are still using similar ads in the new tablet issues. Initial research about magazine applications has found that readers expect to see advertisements in the tablet applications. In fact, many users look forward to perusing advertisements in print media and would be disappointed to find them missing in the magazines designed for tablets.</p>\r\n<p>', 0, '<p>As iPads and other tablets become more popular, internet advertisers are attempting to tap into the new marketing potential. From magazines to game applications, many companies are finding innovative ways to capture the attention of tablet users. Let''s look at some ways companies are changing the face of advertising.</p>\r\n<h2>Traditional Advertising</h2>\r\n<p>Magazines with traditional advertising tactics of using edgy, attention-grabbing ads are still using similar ads in the new tablet issues. Initial research about magazine applications has found that readers expect to see advertisements in the tablet applications. In fact, many users look forward to perusing advertisements in print media and would be disappointed to find them missing in the magazines designed for tablets.</p>\r\n<p><!-- pagebreak --></p>\r\n<h2>Advertising Within Applications</h2>\r\n<p>Moving forward, companies are also finding ways to sneak advertising into applications. Many free applications make money entirely off of the advertising potential. For example, a free game may use advertising revenue to make money, sneaking the advertisements into unobtrusive places.</p>\r\n<p>One example of this is in "Angry Birds." The application is available in both a free version and a purchased version. In the free version, "Angry Birds" players can try out the game for a few levels. Once the player reaches the end of the free version, s/he is given the option to purchase the full version. In a sense, "Angry Birds" advertises for itself.</p>\r\n<p>Other games, like solitaire, sell advertising to other companies. Once the free solitaire application is downloaded, users find that advertisements pop up in between each game. When you think about the low amount of time needed to play a game of solitaire, the advertising potential is pretty high and can be very effective.</p>\r\n<p>Other Advertising/Application Tips</p>\r\n<p>Of course, applications still need to be user-friendly and usable to make advertising effective. This means the application needs to have few or no bugs. If the application does not work properly, the user may forego the application -- and never see the advertising. Other additional tips include:</p>\r\n<ul>\r\n<li>\r\n<p>Make the application easy to use. This means that anywhere you question whether users need instructions, provide them. Also, using intuitive symbols and icons can help users better navigate your application.</p>\r\n</li>\r\n<li>\r\n<p>Make ads clear. If an advertisement does not clearly state its purpose and how to purchase the product, a customer will quickly skip it.</p>\r\n</li>\r\n<li>\r\n<p>Shake it up. With the tablet''s versatility, ads can use video and other forms of media to intrigue a customer. But in that same light, multiple advertisements in a single application benefit from using different advertisements throughout, so shake it up.</p>\r\n</li>\r\n<li>\r\n<p>Use how to videos. Short videos that provide the user with some information applicable to the advertisement will be more successful than simple advertisements.</p>\r\n</li>\r\n<li>\r\n<p>Feed them the product. The best way to ensure an interested party actually purchases the product is to link them directly with the sales page rather than the home page of the advertising company.</p>\r\n</li>\r\n<li>\r\n<p>Link it, link it, link it. With the tablets'' abilities to link customers directly to the desired product, magazines and applications are finding that linking directly from a magazine''s  or an application''s advertisement to the product will produce more buyers than indirect links -- or complete lack of links.</p>\r\n</li>\r\n</ul>\r\n<p>Applications and tablet magazines are becoming much more used in our ever-expanding tablet culture. As research is developed and users respond to the advertisements on applications, we find that interactive advertisements and direct links seem to be the most effective forms of tablet advertisements.</p>', ',109,', ',2,', 'Christa Palm', 1, '2011-04-30 19:52:22', NULL, 1, 'advertising', 1, 'blog', 260, 'Advertising in Applications - TLAr', 'advertising,angry birds,application,advertiser,advertise,traditional advertising', 'One example of this is in ', 0);
 
 -- --------------------------------------------------------
@@ -453,6 +602,7 @@ INSERT INTO `cf_page` (`page_id`, `page_active`, `page_code`, `page_title`, `pag
 -- Table structure for table `cf_page_access`
 --
 
+DROP TABLE IF EXISTS `cf_page_access`;
 CREATE TABLE IF NOT EXISTS `cf_page_access` (
   `page_id` int(11) NOT NULL,
   `group_id` varchar(255) NOT NULL DEFAULT '0',
@@ -565,6 +715,7 @@ INSERT INTO `cf_page_access` (`page_id`, `group_id`) VALUES
 -- Table structure for table `cf_page_comment`
 --
 
+DROP TABLE IF EXISTS `cf_page_comment`;
 CREATE TABLE IF NOT EXISTS `cf_page_comment` (
   `page_comment_id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) NOT NULL,
@@ -592,6 +743,7 @@ INSERT INTO `cf_page_comment` (`page_comment_id`, `name`, `email`, `comment`, `t
 -- Table structure for table `cf_page_tag`
 --
 
+DROP TABLE IF EXISTS `cf_page_tag`;
 CREATE TABLE IF NOT EXISTS `cf_page_tag` (
   `page_id` int(11) NOT NULL,
   `tag` varchar(255) NOT NULL
@@ -621,6 +773,7 @@ INSERT INTO `cf_page_tag` (`page_id`, `tag`) VALUES
 -- Table structure for table `cf_sessions`
 --
 
+DROP TABLE IF EXISTS `cf_sessions`;
 CREATE TABLE IF NOT EXISTS `cf_sessions` (
   `session_id` varchar(40) NOT NULL DEFAULT '0',
   `ip_address` varchar(16) NOT NULL DEFAULT '0',
@@ -641,6 +794,7 @@ CREATE TABLE IF NOT EXISTS `cf_sessions` (
 -- Table structure for table `cf_setting`
 --
 
+DROP TABLE IF EXISTS `cf_setting`;
 CREATE TABLE IF NOT EXISTS `cf_setting` (
   `setting_id` int(11) NOT NULL AUTO_INCREMENT,
   `setting_key` varchar(50) NOT NULL,
@@ -734,6 +888,7 @@ INSERT INTO `cf_setting` (`setting_id`, `setting_key`, `setting_value`, `setting
 -- Table structure for table `cf_setting_keys`
 --
 
+DROP TABLE IF EXISTS `cf_setting_keys`;
 CREATE TABLE IF NOT EXISTS `cf_setting_keys` (
   `setting_id` int(11) NOT NULL AUTO_INCREMENT,
   `setting_key` varchar(50) NOT NULL,
@@ -775,6 +930,7 @@ INSERT INTO `cf_setting_keys` (`setting_id`, `setting_key`, `setting_value`, `se
 -- Table structure for table `cf_tag_cloud`
 --
 
+DROP TABLE IF EXISTS `cf_tag_cloud`;
 CREATE TABLE IF NOT EXISTS `cf_tag_cloud` (
   `tag` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -807,6 +963,7 @@ INSERT INTO `cf_tag_cloud` (`tag`, `title`, `count`, `type`, `websites_id`) VALU
 -- Table structure for table `cf_trim`
 --
 
+DROP TABLE IF EXISTS `cf_trim`;
 CREATE TABLE IF NOT EXISTS `cf_trim` (
   `trim_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `long_url` varchar(255) NOT NULL,
@@ -834,6 +991,7 @@ INSERT INTO `cf_trim` (`trim_id`, `long_url`, `created`, `creator`, `referrals`)
 -- Table structure for table `cf_user`
 --
 
+DROP TABLE IF EXISTS `cf_user`;
 CREATE TABLE IF NOT EXISTS `cf_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `active` char(1) NOT NULL DEFAULT '',
@@ -859,6 +1017,7 @@ INSERT INTO `cf_user` (`user_id`, `active`, `email`, `password`, `firstname`, `l
 -- Table structure for table `cf_websites`
 --
 
+DROP TABLE IF EXISTS `cf_websites`;
 CREATE TABLE IF NOT EXISTS `cf_websites` (
   `websites_id` int(11) NOT NULL AUTO_INCREMENT,
   `websites_name` varchar(255) DEFAULT NULL,
@@ -876,3 +1035,4 @@ INSERT INTO `cf_websites` (`websites_id`, `websites_name`, `websites_url`, `webs
 (2, 'iTalkSEO', 'http://np.italkseo.com/', 1),
 (3, 'Zoosper', 'http://np.zoosper.com/', 1),
 (4, 'Coupon Gift Deals', 'http://np.coupongiftdeals.com/', 1);
+SET FOREIGN_KEY_CHECKS=1;
