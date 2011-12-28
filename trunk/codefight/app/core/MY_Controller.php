@@ -51,7 +51,8 @@ class MY_Controller extends CI_Controller
     {
 
         $this->cfModule = $this->uri->segment(1, 'page');
-        $this->cfAdminController = $this->uri->segment(2, '0');
+        $this->cfAdminController = $this->uri->segment(2, '');
+        $this->cfAdminMethod = $this->uri->segment(3, '');
         if (!in_array($this->cfModule, array('registration', 'skin', 'media', 'favicon.ico'))) {
             $this->session->set_userdata('history', uri_string());
         }
@@ -173,6 +174,21 @@ class MY_Controller extends CI_Controller
             $filename = (preg_replace('/(' . preg_quote($language_path, '/') . '|_lang\.php)/i', '', realpath($v)));
             $this->lang->load($filename, $this->current_language);
         }
+    }
+
+    public function user($field=FALSE)
+    {
+        $data = $this->session->userdata('loggedData');
+
+        if($field)
+        {
+            if(isset($data[$field]))
+                return $data[$field];
+            else
+                return 0;
+        }
+
+        return $data;
     }
 }
 

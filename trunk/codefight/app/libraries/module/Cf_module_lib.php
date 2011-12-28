@@ -14,9 +14,13 @@ class Cf_module_lib
     var $sort = array();
     var $parents = array();
 
-    function _getAdminNav()
+    public function __construct()
     {
         $this->CI =& get_instance();
+    }
+
+    function _getAdminNav()
+    {
         $this->_getCnfs();
 
         $sort_array = (array)$this->cnf;
@@ -207,7 +211,8 @@ class Cf_module_lib
 	
 	public function get_nav_from_db()
 	{
-		$this->CI =& get_instance();
-		return $this->CI->cf_module_model->get();
+        $group_id = $this->CI->user('group_id');
+
+		return $this->CI->cf_module_model->get($group_id);
 	}
 }
