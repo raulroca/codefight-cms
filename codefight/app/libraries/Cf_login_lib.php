@@ -9,6 +9,7 @@ class Cf_login_lib
     function check_login($access = array())
     {
         $CI =& get_instance();
+        $access = (array)$access;
 
         if ($CI->session->userdata('logged_in') === '1') {
 
@@ -101,5 +102,3 @@ class Cf_login_lib
 
     }
 }
-
-?>
